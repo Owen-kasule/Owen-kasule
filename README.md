@@ -1,22 +1,71 @@
-# 💫 About Me:
-🔭 Currently working on: My portfolio website and assignments for my Software Development courses at BYU-Idaho—because who needs spare time when you have code?<br>👯  Looking to collaborate on: Projects where technology meets real-world challenges, especially in web development and software optimization.<br>🤝 Open to help with: Debugging tricky code, optimizing databases, or tackling any challenging programming tasks.<br>🌱 Currently learning: Data Analysis with Python and diving deeper into advanced cloud technologies.<br>💬 Ask me about: Full-stack development, AWS cloud services, or best practices in database management.<br>⚡ Fun fact: I'm so passionate about efficient code that sometimes even AI asks me for tips (and no, I didn't bribe it)!
+# 💼 About Me:
+Hi, I’m **Owen Kasule Muhereza**, a **Software Developer** currently studying **Software Development** at **BYU-Idaho**. I create efficient solutions across a variety of technology areas, including **web development**, **mobile app development**, **cloud services**, and **database management**. I’m passionate about solving real-world problems and continuously expanding my skills to work with the latest technologies.
 
-
-## 🌐 Socials:
-[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/Muhereza Owen Kas ) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/ owen4_u) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Owen Muhereza Kasule) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/owenkaule) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://tiktok.com/@@king_owen_k) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/@KingOWEN99) [![Codepen](https://img.shields.io/badge/Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/Muhereza Owen Kasule) 
-
-# 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white) ![Azure](https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white) ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white) ![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Inkscape](https://img.shields.io/badge/Inkscape-e0e0e0?style=for-the-badge&logo=inkscape&logoColor=080A13) ![Gimp](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Krita](https://img.shields.io/badge/Krita-203759?style=for-the-badge&logo=krita&logoColor=EEF37B) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+🔭 **Currently working on**: Improving my **portfolio website** while diving into mobile app development and cloud-based projects that tackle practical challenges.  
+👯 **Looking to collaborate on**: Projects that focus on **scalable systems**, **mobile apps**, and **cloud technologies**.  
+🌱 **Currently learning**: Advancing my skills in **AWS cloud services** and **data analysis** with **Python**.  
+💬 **Ask me about**: **Full-stack development**, **mobile app development**, **cloud computing**, and **coding best practices**.  
+⚡ **Fun fact**: I’m so committed to coding that I even manage to debug my code during an Arsenal match—yes, I can multitask like a pro!
 
 ---
-[![](https://visitcount.itsvg.in/api?id=Owen-kasule&icon=0&color=0)](https://visitcount.itsvg.in)
 
-  ## 💰 You can help me by Donating
-  [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/2owen4 ) 
+## 🌐 Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/owen-muhereza-kasule-teachrooot)  
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white)](https://github.com/owen-kasule)  
+[![Twitter](https://img.shields.io/badge/Twitter-%23000000.svg?logo=twitter&logoColor=white)](https://twitter.com/@KingOWEN99)
 
-  
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+---
+
+# 💻 Tech Stack:
+I work with a broad set of tools and technologies to build **dynamic and scalable applications**:
+
+- **Languages**: ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+- **Frameworks & Libraries**: ![Vue.js](https://img.shields.io/badge/vue.js-%234FC08D.svg?style=for-the-badge&logo=vue.js&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- **Cloud**: ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+- **Databases**: ![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+- **Version Control**: ![GitHub](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+
+---
+
+## 🚀 Recent Projects:
+
+Here are some of my recent projects, showcasing my versatility in working with different industries:
+
+### **1. [Tech Startup - Personal Portfolio Website](https://owen-kasule.github.io/wdd231/individual-project/index.html)**  
+A responsive **personal portfolio** built with **HTML**, **CSS**, and **JavaScript**, showcasing my work and highlighting my development skills. This website serves as a gateway to showcase my coding projects and experience.
+
+### **2. [NGO - Project Website](https://owen-kasule.github.io/project/index.html)**  
+Built for a non-profit, this project site highlights an NGO's mission and services, utilizing **HTML**, **CSS**, and **JavaScript** to create a user-friendly interface for information sharing.
+
+### **3. [Water Rafting Company - WWR Project](https://owen-kasule.github.io/wdd130/wwr/index.html)**  
+An interactive **web page** for a water rafting company, designed with **HTML**, **CSS**, and **JavaScript**. This project demonstrates a clean UI for showcasing activities, schedules, and bookings.
+
+### **4. [LDS Temple Gallery - Filtered Temples](https://owen-kasule.github.io/wdd131/filtered-temples.html)**  
+Developed using **Vue.js**, this is a **temple gallery** that filters and displays information on various temples. It demonstrates my ability to work with **Vue.js** for dynamic content display.
+
+### **5. [Sustainable NGO - SDS Africa Website](https://sdsafrica.org/)**  
+Built for a client, this **WordPress-based** website highlights an NGO dedicated to **sustainable development**. I customized the theme to create a clean, user-friendly interface while integrating essential features such as donation forms and event tracking.
+
+---
+
+## 📊 GitHub Stats:
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule&theme=dark&hide_border=false)<br/>
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+
+---
+
+## 💰 You Can Support My Work
+If you believe in my journey as a developer and would like to support my work, please consider donating via PayPal. Your support helps me further grow my skills and build more impactful projects.
+
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/2owen4)
+
+---
+
+### **Why This README Will Land Me the Interview:**
+- **Clear, Professional Introduction**: It communicates my passion for development, my skills, and what I'm currently working on.  
+- **Showcases Relevant Projects**: Each project description links directly to practical applications of my coding skills in different fields, showing my ability to adapt to various industries (tech, NGOs, customer service).  
+- **Skills & Tech Stack**: The tech stack section highlights my proficiency in the most in-demand technologies, ensuring that potential employers know exactly what tools I'm skilled in.  
+- **GitHub Stats**: Sharing my GitHub stats and activity gives employers a clear view of my ongoing dedication to coding and personal growth.
+
+---
