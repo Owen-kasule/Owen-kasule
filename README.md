@@ -1,11 +1,11 @@
 # 💼 About Me:
-Hi, I’m **Owen Kasule Muhereza**, a **Software Developer** currently studying **Software Development** at **BYU-Idaho**. I create efficient solutions across a variety of technology areas, including **web development**, **mobile app development**, **cloud services**, and **database management**. I’m passionate about solving real-world problems and continuously expanding my skills to work with the latest technologies.
+Hi, I’m **Owen Kasule Muhereza**, a **Software Developer** currently studying **Software Development** at **BYU-Idaho**. I hold a **Diploma in Information Technology** from **ISBAT University** in **Kampala**, Uganda. I specialize in creating efficient solutions across a variety of technology areas, including **web development**, **mobile app development**, **cloud services**, and **database management**. I’m passionate about solving real-world problems and continuously expanding my skills to work with the latest technologies.
 
-🔭 **Currently working on**: Improving my **portfolio website** while diving into mobile app development and cloud-based projects that tackle practical challenges.  
-👯 **Looking to collaborate on**: Projects that focus on **scalable systems**, **mobile apps**, and **cloud technologies**.  
-🌱 **Currently learning**: Advancing my skills in **AWS cloud services** and **data analysis** with **Python**.  
-💬 **Ask me about**: **Full-stack development**, **mobile app development**, **cloud computing**, and **coding best practices**.  
-⚡ **Fun fact**: I’m so committed to coding that I even manage to debug my code during an Arsenal match—yes, I can multitask like a pro!
+🔭 **Currently working on**: Enhancing my **portfolio website** and collaborating on web development projects that have **real-world impact**.  
+👯 **Looking to collaborate on**: Projects where **technology** can solve **global challenges**, especially in **web development**, **software optimization**, and **cloud technologies**.  
+🌱 **Currently learning**: **AWS cloud technologies** and **data analysis** with **Python** to improve my backend and data-handling capabilities.  
+💬 **Ask me about**: **Full-stack development**, **cloud services (AWS)**, **best practices in database management**, and **coding principles**.  
+⚡ **Fun fact**: I’m so committed to **efficient coding** that I even manage to debug my code while watching an Arsenal match—yes, I can multitask like a pro!
 
 ---
 
@@ -29,19 +29,19 @@ I work with a broad set of tools and technologies to build **dynamic and scalabl
 
 ## 🚀 Recent Projects:
 
-Here are some of my recent projects, showcasing my versatility in working with different industries:
+Here are some of my recent projects, demonstrating my ability to build responsive and interactive websites using **HTML**, **CSS**, and **JavaScript**:
 
-### **1. [Tech Startup - Personal Portfolio Website](https://owen-kasule.github.io/wdd231/individual-project/index.html)**  
-A responsive **personal portfolio** built with **HTML**, **CSS**, and **JavaScript**, showcasing my work and highlighting my development skills. This website serves as a gateway to showcase my coding projects and experience.
+### **1. [Tech Startup - Company Portfolio Website](https://owen-kasule.github.io/wdd231/individual-project/index.html)**  
+A **responsive portfolio website** designed for a **tech startup**. Built with **HTML**, **CSS**, and **JavaScript**, this website serves as a platform to showcase the company’s services and projects. It highlights my ability to create professional, user-friendly websites tailored for business needs.
 
 ### **2. [NGO - Project Website](https://owen-kasule.github.io/project/index.html)**  
-Built for a non-profit, this project site highlights an NGO's mission and services, utilizing **HTML**, **CSS**, and **JavaScript** to create a user-friendly interface for information sharing.
+Created for a non-profit, this site highlights the organization’s mission and services. Built with **HTML**, **CSS**, and **JavaScript**, the site offers a user-friendly interface for visitors to explore the NGO's work and contribute.
 
 ### **3. [Water Rafting Company - WWR Project](https://owen-kasule.github.io/wdd130/wwr/index.html)**  
-An interactive **web page** for a water rafting company, designed with **HTML**, **CSS**, and **JavaScript**. This project demonstrates a clean UI for showcasing activities, schedules, and bookings.
+An **interactive web page** for a water rafting company, designed using **HTML**, **CSS**, and **JavaScript**. This project features a **clean, responsive UI** for users to view activities, schedules, and booking information.
 
 ### **4. [LDS Temple Gallery - Filtered Temples](https://owen-kasule.github.io/wdd131/filtered-temples.html)**  
-Developed using **Vue.js**, this is a **temple gallery** that filters and displays information on various temples. It demonstrates my ability to work with **Vue.js** for dynamic content display.
+Developed with **HTML**, **CSS**, and **JavaScript**, this **temple gallery** showcases a filtered list of LDS temples. It demonstrates my ability to create dynamic content and interactive features on the web.
 
 ### **5. [Sustainable NGO - SDS Africa Website](https://sdsafrica.org/)**  
 Built for a client, this **WordPress-based** website highlights an NGO dedicated to **sustainable development**. I customized the theme to create a clean, user-friendly interface while integrating essential features such as donation forms and event tracking.
