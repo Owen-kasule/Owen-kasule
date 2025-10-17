@@ -1,7 +1,7 @@
 # 💼 About Me:
 Hi, I’m **Owen Kasule Muhereza**, a **Software Developer** currently studying **Software Development** at **BYU-Idaho**. I hold a **Diploma in Information Technology** from **ISBAT University** in **Kampala**, Uganda. I specialize in creating efficient solutions across a variety of technology areas, including **web development**, **mobile app development**, **cloud services**, and **database management**. I’m passionate about solving real-world problems and continuously expanding my skills to work with the latest technologies.
 
-🔭 **Currently working on**: Enhancing my **portfolio website** and collaborating on web development projects that have **real-world impact**.  
+🔭 **Currently working on**: Enhancing a few **website templetes** and collaborating on web development projects that have **real-world impact**.  
 👯 **Looking to collaborate on**: Projects where **technology** can solve **global challenges**, especially in **web development**, **software optimization**, and **cloud technologies**.  
 🌱 **Currently learning**: **AWS cloud technologies** and **data analysis** with **Python** to improve my backend and data-handling capabilities.  
 💬 **Ask me about**: **Full-stack development**, **cloud services (AWS)**, **best practices in database management**, and **coding principles**.  
