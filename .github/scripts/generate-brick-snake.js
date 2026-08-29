@@ -494,8 +494,8 @@ function renderActivityCard(weeks, year, availableYears) {
   </style>
   <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="${bg}" stroke="${border}" stroke-width="2" />
   <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in ${year}</text>
-  ${availableYears.map((availableYear, index) => `<a href="https://raw.githubusercontent.com/${username}/${username}/output/github-activity-card-${availableYear}.svg"><rect x="1012" y="${24 + index * 36}" width="70" height="28" rx="6" fill="${availableYear === String(year) ? "#2459a6" : panel}" /><text x="1047" y="${44 + index * 36}" text-anchor="middle" fill="${text}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">${availableYear}</text></a>`).join("\n")}
-  <rect x="${left - 18}" y="${top - 34}" width="${width - left - 36}" height="210" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
+  ${availableYears.map((availableYear, index) => `<a href="https://github.com/${username}/${username}#contribution-year-${availableYear}"><rect x="1020" y="${24 + index * 36}" width="62" height="28" rx="6" fill="${availableYear === String(year) ? "#2459a6" : panel}" /><text x="1051" y="${44 + index * 36}" text-anchor="middle" fill="${text}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">${availableYear}</text></a>`).join("\n")}
+  <rect x="${left - 18}" y="${top - 34}" width="940" height="210" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
   ${monthLabels.map((label) => `<text class="muted" x="${left + label.index * step}" y="${top - 12}">${label.label}</text>`).join("\n")}
   <text class="muted" x="25" y="${top + 30}">Mon</text>
   <text class="muted" x="25" y="${top + 98}">Wed</text>

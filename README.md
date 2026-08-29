@@ -183,10 +183,39 @@
 
 <details open>
 <summary>Contribution Activity</summary>
+<a id="contribution-year-2026"></a>
 <p align="center">
   <a href="https://github.com/Owen-kasule?tab=overview">
     <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-activity-card.svg" alt="Owen Kasule's graphical GitHub contribution activity and overview" />
   </a>
+</p>
+</details>
+
+<details>
+<summary id="contribution-year-2025">2025 Contribution Activity</summary>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-activity-card-2025.svg" alt="Owen Kasule's 2025 graphical GitHub contribution activity" />
+</p>
+</details>
+
+<details>
+<summary id="contribution-year-2024">2024 Contribution Activity</summary>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-activity-card-2024.svg" alt="Owen Kasule's 2024 graphical GitHub contribution activity" />
+</p>
+</details>
+
+<details>
+<summary id="contribution-year-2023">2023 Contribution Activity</summary>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-activity-card-2023.svg" alt="Owen Kasule's 2023 graphical GitHub contribution activity" />
+</p>
+</details>
+
+<details>
+<summary id="contribution-year-2022">2022 Contribution Activity</summary>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-activity-card-2022.svg" alt="Owen Kasule's 2022 graphical GitHub contribution activity" />
 </p>
 </details>
 
