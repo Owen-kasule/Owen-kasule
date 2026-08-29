@@ -389,6 +389,25 @@ function renderProgressBar(targets, left, top, width, height, stroke) {
   return `${track}\n${segments}`;
 }
 
+function polarToCartesian(cx, cy, radius, angleDegrees) {
+  const angleRadians = angleDegrees * Math.PI / 180;
+  return {
+    x: cx + radius * Math.cos(angleRadians),
+    y: cy + radius * Math.sin(angleRadians),
+  };
+}
+
+function describeArc(cx, cy, radius, startAngle, endAngle) {
+  const start = polarToCartesian(cx, cy, radius, startAngle);
+  const end = polarToCartesian(cx, cy, radius, endAngle);
+  const largeArcFlag = endAngle - startAngle <= 180 ? 0 : 1;
+
+  return [
+    `M ${start.x.toFixed(2)} ${start.y.toFixed(2)}`,
+    `A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`,
+  ].join(" ");
+}
+
 function renderStatsCard(stats) {
   const width = 990;
   const height = 390;
@@ -398,9 +417,9 @@ function renderStatsCard(stats) {
   const accent = "#C2FFC7";
   const purple = "#CB9DF0";
   const ringRadius = 78;
-  const ringCircumference = 2 * Math.PI * ringRadius;
   const progress = Math.min(0.96, Math.max(0.16, stats.current / Math.max(1, stats.longest)));
-  const dash = `${(progress * ringCircumference).toFixed(1)} ${ringCircumference.toFixed(1)}`;
+  const ringArc = describeArc(495, 140, ringRadius, -50, 230);
+  const dash = `${(progress * 100).toFixed(1)} 100`;
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${username} GitHub stats</title>
@@ -420,8 +439,8 @@ function renderStatsCard(stats) {
   <text class="label" x="165" y="236" text-anchor="middle">Total Contributions</text>
   <text class="muted" x="165" y="300" text-anchor="middle">${formatFullDay(stats.firstDate)} - Present</text>
 
-  <circle cx="495" cy="140" r="${ringRadius}" stroke="${accent}" stroke-width="10" opacity="0.25" />
-  <circle cx="495" cy="140" r="${ringRadius}" stroke="${accent}" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 140)" stroke-dasharray="${dash}" />
+  <path d="${ringArc}" pathLength="100" stroke="${accent}" stroke-width="10" stroke-linecap="round" opacity="0.25" />
+  <path d="${ringArc}" pathLength="100" stroke="${accent}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${dash}" />
   <path d="M495 43 C511 59 516 74 505 86 C496 97 476 92 480 74 C481 66 488 62 492 53 C495 62 506 69 500 78 C509 69 504 54 495 43Z" fill="${purple}" />
   <text class="middle-number" x="495" y="164" text-anchor="middle">${stats.current}</text>
   <text class="label green" x="495" y="280" text-anchor="middle">Current Streak</text>
