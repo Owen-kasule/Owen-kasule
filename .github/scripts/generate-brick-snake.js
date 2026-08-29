@@ -134,20 +134,71 @@ function getStats(days) {
   };
 }
 
-function getEatenFillAnimation(originalFill, emptyFill, index, totalTargets) {
-  const hold = Math.max(0, (index + 1) / (totalTargets + 7));
-  const turn = Math.min(0.995, hold + 0.002);
+function getEatenFillAnimation(originalFill, emptyFill, progress) {
+  const eatAt = Math.min(0.985, Math.max(0.002, progress));
+  const turn = Math.min(0.995, eatAt + 0.003);
 
-  return `<animate attributeName="fill" dur="30s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${hold.toFixed(4)};${turn.toFixed(4)};1" values="${originalFill};${originalFill};${emptyFill};${emptyFill}" />`;
+  return `<animate attributeName="fill" dur="36s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${eatAt.toFixed(4)};${turn.toFixed(4)};1" values="${originalFill};${originalFill};${emptyFill};${emptyFill}" />`;
 }
 
-function animationValues(points, axis, segmentIndex) {
-  const shifted = points.slice();
-  for (let i = 0; i < segmentIndex; i += 1) {
-    shifted.unshift(shifted[0]);
+function addRoute(path, from, to, step) {
+  const current = { ...from };
+
+  while (current.x !== to.x || current.y !== to.y) {
+    if (current.x !== to.x) {
+      current.x += Math.sign(to.x - current.x) * step;
+    } else {
+      current.y += Math.sign(to.y - current.y) * step;
+    }
+    path.push({ ...current });
   }
 
-  return shifted.map((point) => point[axis]).join(";");
+  return current;
+}
+
+function buildSnakePath(targets, left, top, step) {
+  const path = [];
+  const exitY = top - 2 * step;
+  let current = { x: left - 2 * step, y: exitY };
+
+  path.push({ ...current });
+
+  targets.forEach((target) => {
+    // The top lane gives the snake room to leave the board between distant targets.
+    current = addRoute(path, current, { x: target.x, y: exitY }, step);
+    current = addRoute(path, current, { x: target.x, y: target.y }, step);
+    target.pathIndex = path.length - 1;
+  });
+
+  return path;
+}
+
+function snakeMotion(path, lag) {
+  const values = path.map((_, index) => {
+    const point = path[Math.max(0, index - lag)];
+    return `${point.x} ${point.y}`;
+  }).join(";");
+
+  return `<animateTransform attributeName="transform" type="translate" dur="36s" repeatCount="indefinite" calcMode="discrete" values="${values}" />`;
+}
+
+function renderProgressBar(targets, left, top, width, height, stroke) {
+  const segmentWidth = width / Math.max(1, targets.length);
+  const track = `<rect x="${left}" y="${top}" width="${width}" height="${height}" rx="2" fill="${stroke}" opacity="0.45" />`;
+  const segments = targets.map((target, index) => {
+    const x = left + index * segmentWidth;
+    const segment = index === targets.length - 1
+      ? left + width - x
+      : segmentWidth;
+    const eatAt = Math.min(0.985, Math.max(0.002, target.pathIndex / Math.max(1, target.pathLength - 1)));
+    const turn = Math.min(0.995, eatAt + 0.003);
+
+    return `<rect x="${x.toFixed(2)}" y="${top}" width="0" height="${height}" fill="${target.fill}">
+      <animate attributeName="width" dur="36s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${eatAt.toFixed(4)};${turn.toFixed(4)};1" values="0;0;${segment.toFixed(2)};${segment.toFixed(2)}" />
+    </rect>`;
+  }).join("\n");
+
+  return `${track}\n${segments}`;
 }
 
 function flattenCalendar(weeks) {
@@ -204,7 +255,7 @@ function renderSnakeSvg(weeks, dark) {
   const step = cell + gap;
   const left = 34;
   const top = 78;
-  const footerTop = top + 7 * step + 36;
+  const footerTop = top + 7 * step + 30;
   const gridWidth = weeks.length * step - gap;
   const width = left * 2 + gridWidth;
   const height = footerTop + 92;
@@ -238,17 +289,23 @@ function renderSnakeSvg(weeks, dark) {
     return b.weekIndex - a.weekIndex;
   });
 
-  const targetKeys = new Map(targets.map((target, index) => [`${target.date}`, index]));
+  const path = buildSnakePath(targets, left, top, step);
+  targets.forEach((target) => {
+    target.pathLength = path.length;
+    target.fill = contributionColor(target.contributionCount, dark);
+  });
+
+  const targetKeys = new Map(targets.map((target) => [`${target.date}`, target]));
 
   weeks.forEach((week, weekIndex) => {
     week.contributionDays.forEach((day) => {
       const x = left + weekIndex * step;
       const y = top + day.weekday * step;
       const fill = contributionColor(day.contributionCount, dark);
-      const targetIndex = targetKeys.get(day.date);
-      const eatAnimation = targetIndex === undefined
+      const target = targetKeys.get(day.date);
+      const eatAnimation = target === undefined
         ? ""
-        : getEatenFillAnimation(fill, emptyFill, targetIndex, targets.length);
+        : getEatenFillAnimation(fill, emptyFill, target.pathIndex / Math.max(1, path.length - 1));
 
       cells.push(
         `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${fill}" stroke="${stroke}" stroke-width="0.45">${eatAnimation}<title>${day.date}: ${day.contributionCount} contributions</title></rect>`
@@ -256,25 +313,12 @@ function renderSnakeSvg(weeks, dark) {
     });
   });
 
-  const pathPoints = targets.map((target) => ({ x: target.x, y: target.y }));
-  const duration = "30s";
-  const snake = Array.from({ length: 6 }, (_, index) => {
-    const opacity = (1 - index * 0.12).toFixed(2);
-    const size = index === 0 ? cell + 3 : cell;
-    const offset = index === 0 ? -1.5 : 0;
-    const xValues = animationValues(pathPoints, "x", index).split(";").map((value) => Number(value) + offset).join(";");
-    const yValues = animationValues(pathPoints, "y", index).split(";").map((value) => Number(value) + offset).join(";");
-
-    return `<rect width="${size}" height="${size}" rx="3" fill="${snakeColors[index]}" opacity="${opacity}">
-      <animate attributeName="x" dur="${duration}" repeatCount="indefinite" calcMode="discrete" values="${xValues}" />
-      <animate attributeName="y" dur="${duration}" repeatCount="indefinite" calcMode="discrete" values="${yValues}" />
-    </rect>`;
-  }).join("\n");
-
-  const laneValues = Array.from({ length: 18 }, (_, index) => {
-    const value = left + Math.round((gridWidth - 110) * (index / 17));
-    return value;
-  }).concat([left]).join(";");
+  const snake = [
+    { size: cell + 4, offset: -2, color: snakeColors[0], lag: 0, opacity: 1 },
+    { size: cell + 2, offset: -1, color: snakeColors[1], lag: 3, opacity: 0.95 },
+    { size: cell, offset: 0, color: snakeColors[2], lag: 6, opacity: 0.9 },
+    { size: cell - 1, offset: 0.5, color: snakeColors[3], lag: 9, opacity: 0.85 },
+  ].map((segment) => `<rect x="${segment.offset}" y="${segment.offset}" width="${segment.size}" height="${segment.size}" rx="3.5" fill="${segment.color}" opacity="${segment.opacity}">${snakeMotion(path, segment.lag)}</rect>`).join("\n");
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${username} brick-game contribution snake</title>
@@ -289,10 +333,8 @@ function renderSnakeSvg(weeks, dark) {
   <text class="title" x="${width / 2}" y="38" text-anchor="middle">Contribution Snake</text>
   <text class="label" x="${width / 2}" y="61" text-anchor="middle">EATS LIGHT GREEN FIRST / CLEARS TO WHITE</text>
   <g>${cells.join("\n")}</g>
-  ${snake}
-  <rect y="${footerTop}" width="118" height="12" rx="2" fill="${paddle}">
-    <animate attributeName="x" dur="3.6s" repeatCount="indefinite" calcMode="linear" values="${laneValues}" />
-  </rect>
+  <g aria-label="One continuous contribution snake">${snake}</g>
+  <g aria-label="Contribution colors eaten in order">${renderProgressBar(targets, left, footerTop, gridWidth, 12, stroke)}</g>
   <rect x="${left}" y="${footerTop + 34}" width="${gridWidth}" height="1" fill="${stroke}" />
   <text class="quote" x="${width / 2}" y="${footerTop + 62}" text-anchor="middle">“The best way to predict the future is to invent it.”</text>
   <text class="author" x="${width / 2}" y="${footerTop + 84}" text-anchor="middle">ALAN KAY</text>
