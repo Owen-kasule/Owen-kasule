@@ -135,6 +135,15 @@ function formatDay(date) {
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
+function formatFullDay(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
 function formatRange(start, end) {
   if (!start || !end) return "No active streak";
   return `${formatDay(start)} - ${formatDay(end)}`;
@@ -382,13 +391,13 @@ function renderProgressBar(targets, left, top, width, height, stroke) {
 
 function renderStatsCard(stats) {
   const width = 990;
-  const height = 280;
+  const height = 390;
   const bg = "#111111";
   const text = "#ffffff";
   const muted = "#a5a5a5";
   const accent = "#C2FFC7";
   const purple = "#CB9DF0";
-  const ringRadius = 66;
+  const ringRadius = 78;
   const ringCircumference = 2 * Math.PI * ringRadius;
   const progress = Math.min(0.96, Math.max(0.16, stats.current / Math.max(1, stats.longest)));
   const dash = `${(progress * ringCircumference).toFixed(1)} ${ringCircumference.toFixed(1)}`;
@@ -398,28 +407,29 @@ function renderStatsCard(stats) {
   <desc id="desc">GitHub contribution totals, current streak, and longest streak for ${username}.</desc>
   <style>
     .number { font: 800 56px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
-    .label { font: 700 28px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
-    .muted { font: 700 24px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${muted}; }
+    .middle-number { font: 800 52px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
+    .label { font: 700 27px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
+    .muted { font: 700 23px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${muted}; }
     .green { fill: ${accent}; }
   </style>
   <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="8" fill="${bg}" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="330" y1="48" x2="330" y2="232" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="660" y1="48" x2="660" y2="232" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="330" y1="62" x2="330" y2="328" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="660" y1="62" x2="660" y2="328" stroke="#d7d7d7" stroke-width="2" />
 
-  <text class="number" x="165" y="112" text-anchor="middle">${formatNumber(stats.total)}</text>
-  <text class="label" x="165" y="164" text-anchor="middle">Total Contributions</text>
-  <text class="muted" x="165" y="210" text-anchor="middle">${formatDay(stats.firstDate)} - Present</text>
+  <text class="number" x="165" y="170" text-anchor="middle">${formatNumber(stats.total)}</text>
+  <text class="label" x="165" y="236" text-anchor="middle">Total Contributions</text>
+  <text class="muted" x="165" y="300" text-anchor="middle">${formatFullDay(stats.firstDate)} - Present</text>
 
-  <circle cx="495" cy="94" r="${ringRadius}" stroke="${accent}" stroke-width="10" opacity="0.25" />
-  <circle cx="495" cy="94" r="${ringRadius}" stroke="${accent}" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 94)" stroke-dasharray="${dash}" />
-  <path d="M495 32 C511 48 516 63 505 75 C496 86 476 81 480 63 C481 55 488 51 492 42 C495 51 506 58 500 67 C509 58 504 43 495 32Z" fill="${purple}" />
-  <text class="number" x="495" y="119" text-anchor="middle">${stats.current}</text>
-  <text class="label green" x="495" y="202" text-anchor="middle">Current Streak</text>
-  <text class="muted" x="495" y="242" text-anchor="middle">${formatRange(stats.currentStart, stats.currentEnd)}</text>
+  <circle cx="495" cy="140" r="${ringRadius}" stroke="${accent}" stroke-width="10" opacity="0.25" />
+  <circle cx="495" cy="140" r="${ringRadius}" stroke="${accent}" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 140)" stroke-dasharray="${dash}" />
+  <path d="M495 43 C511 59 516 74 505 86 C496 97 476 92 480 74 C481 66 488 62 492 53 C495 62 506 69 500 78 C509 69 504 54 495 43Z" fill="${purple}" />
+  <text class="middle-number" x="495" y="164" text-anchor="middle">${stats.current}</text>
+  <text class="label green" x="495" y="280" text-anchor="middle">Current Streak</text>
+  <text class="muted" x="495" y="330" text-anchor="middle">${formatRange(stats.currentStart, stats.currentEnd)}</text>
 
-  <text class="number" x="825" y="112" text-anchor="middle">${stats.longest}</text>
-  <text class="label" x="825" y="164" text-anchor="middle">Longest Streak</text>
-  <text class="muted" x="825" y="210" text-anchor="middle">${formatRange(stats.longestStart, stats.longestEnd)}</text>
+  <text class="number" x="825" y="170" text-anchor="middle">${stats.longest}</text>
+  <text class="label" x="825" y="236" text-anchor="middle">Longest Streak</text>
+  <text class="muted" x="825" y="300" text-anchor="middle">${formatRange(stats.longestStart, stats.longestEnd)}</text>
 </svg>
 `;
 }
