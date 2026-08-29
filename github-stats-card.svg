@@ -16,8 +16,8 @@
   <text class="label" x="165" y="236" text-anchor="middle">Total Contributions</text>
   <text class="muted" x="165" y="300" text-anchor="middle">Sep 20, 2022 - Present</text>
 
-  <circle cx="495" cy="140" r="78" stroke="#C2FFC7" stroke-width="10" opacity="0.25" />
-  <circle cx="495" cy="140" r="78" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 140)" stroke-dasharray="381.2 490.1" />
+  <path d="M 545.14 80.25 A 78 78 0 1 1 444.86 80.25" pathLength="100" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" opacity="0.25" />
+  <path d="M 545.14 80.25 A 78 78 0 1 1 444.86 80.25" pathLength="100" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" stroke-dasharray="77.8 100" />
   <path d="M495 43 C511 59 516 74 505 86 C496 97 476 92 480 74 C481 66 488 62 492 53 C495 62 506 69 500 78 C509 69 504 54 495 43Z" fill="#CB9DF0" />
   <text class="middle-number" x="495" y="164" text-anchor="middle">7</text>
   <text class="label green" x="495" y="280" text-anchor="middle">Current Streak</text>
