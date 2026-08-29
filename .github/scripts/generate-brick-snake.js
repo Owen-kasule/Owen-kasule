@@ -204,11 +204,12 @@ function isBoardCell(point, boardWidth, boardHeight) {
   return point.x >= 0 && point.x < boardWidth && point.y >= 0 && point.y < boardHeight;
 }
 
-function findSafeRoute(start, goal, blocked, occupied, boardWidth, boardHeight, routeMargin) {
+function findSafeRoute(start, goal, activeBody, blocked, boardWidth, boardHeight, routeMargin) {
   const minX = -1;
   const maxX = boardWidth;
-  const minY = -2 - routeMargin;
-  const maxY = boardHeight + 1 + routeMargin;
+  const minY = -2;
+  const maxY = boardHeight + 1;
+  const occupied = new Set(activeBody.map(coordinateKey));
   const queue = [{ ...start }];
   const previous = new Map([[coordinateKey(start), null]]);
   const startKey = coordinateKey(start);
@@ -222,14 +223,17 @@ function findSafeRoute(start, goal, blocked, occupied, boardWidth, boardHeight, 
 
   for (let index = 0; index < queue.length; index += 1) {
     const current = queue[index];
-    if (coordinateKey(current) === coordinateKey(goal)) break;
+    if (coordinateKey(current) === goalKey) {
+      break;
+    }
 
     directions.forEach((direction) => {
       const next = { x: current.x + direction.x, y: current.y + direction.y };
       const key = coordinateKey(next);
+      const tailKey = coordinateKey(activeBody[0]);
       const walkable = key === startKey
         || key === goalKey
-        || (!occupied.has(key) && (!isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key)));
+        || ((!occupied.has(key) || key === tailKey) && (!isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key)));
 
       if (next.x < minX || next.x > maxX || next.y < minY || next.y > maxY || previous.has(key) || !walkable) return;
       previous.set(key, current);
@@ -237,9 +241,7 @@ function findSafeRoute(start, goal, blocked, occupied, boardWidth, boardHeight, 
     });
   }
 
-  if (!previous.has(goalKey)) {
-    return null;
-  }
+  if (!previous.has(goalKey)) return null;
 
   const route = [];
   let current = goal;
@@ -248,6 +250,45 @@ function findSafeRoute(start, goal, blocked, occupied, boardWidth, boardHeight, 
     current = previous.get(coordinateKey(current));
   }
   return route;
+}
+
+function routeCrossesActiveBody(route, activeBody) {
+  const body = activeBody.map((point) => ({ ...point }));
+  return route.slice(1).some((point) => {
+    const tail = body.shift();
+    const crossesBody = body.some((bodyPoint) => coordinateKey(bodyPoint) === coordinateKey(point));
+    body.push({ ...point });
+    return crossesBody && coordinateKey(tail) !== coordinateKey(point);
+  });
+}
+
+function bodyAfterRoute(route, activeBody) {
+  const body = activeBody.map((point) => ({ ...point }));
+  route.slice(1).forEach((point) => {
+    body.shift();
+    body.push({ ...point });
+  });
+  return body;
+}
+
+function hasSafeExit(route, activeBody, blocked, boardWidth, boardHeight) {
+  const body = bodyAfterRoute(route, activeBody);
+  const head = body[body.length - 1];
+  const tailKey = coordinateKey(body[0]);
+  const directions = [
+    { x: 1, y: 0 },
+    { x: -1, y: 0 },
+    { x: 0, y: 1 },
+    { x: 0, y: -1 },
+  ];
+
+  return directions.some((direction) => {
+    const next = { x: head.x + direction.x, y: head.y + direction.y };
+    const key = coordinateKey(next);
+    const clearOfBody = !body.some((bodyPoint) => coordinateKey(bodyPoint) === key) || key === tailKey;
+    return next.x >= -1 && next.x <= boardWidth && next.y >= -2 && next.y <= boardHeight + 1
+      && clearOfBody && (!isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key));
+  });
 }
 
 function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
@@ -262,25 +303,33 @@ function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
   while (remaining.length) {
     let chosenIndex = -1;
     let chosenRoute = null;
+    const reachableCandidates = [];
 
-    // Keep the lightest-first preference, but skip a target until it is reachable without crossing green cells.
+    // Prefer light colors, but let a much shorter route win to avoid dead ends.
     for (let index = 0; index < remaining.length; index += 1) {
       const candidate = remaining[index];
       const goal = { x: candidate.weekIndex, y: candidate.weekday };
       const goalKey = coordinateKey(goal);
       blocked.delete(goalKey);
-      const route = findSafeRoute(current, goal, blocked, new Set(activeBody.map(coordinateKey)), boardWidth, boardHeight, routeMargin);
+      const route = findSafeRoute(current, goal, activeBody, blocked, boardWidth, boardHeight, routeMargin);
       blocked.add(goalKey);
 
       if (route) {
-        chosenIndex = index;
-        chosenRoute = route;
-        break;
+        const nextBlocked = new Set(blocked);
+        nextBlocked.delete(goalKey);
+        if (routeCrossesActiveBody(route, activeBody) || !hasSafeExit(route, activeBody, nextBlocked, boardWidth, boardHeight)) continue;
+        reachableCandidates.push({ index, route, goal, score: route.length + candidate.level * 8 });
       }
     }
 
+    reachableCandidates.sort((first, second) => first.score - second.score || first.route.length - second.route.length);
+    if (reachableCandidates.length) {
+      chosenIndex = reachableCandidates[0].index;
+      chosenRoute = reachableCandidates[0].route;
+    }
+
     if (chosenIndex === -1 || !chosenRoute) {
-      throw new Error("No safe route remains for the contribution snake");
+      throw new Error(`No safe route remains for the contribution snake (${remaining.length} targets left at ${current.x}:${current.y})`);
     }
 
     const target = remaining.splice(chosenIndex, 1)[0];
@@ -290,10 +339,6 @@ function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
     if (chosenRoute.some((point) => blocked.has(coordinateKey(point)))) {
       throw new Error("Snake route crossed a future green contribution cell");
     }
-    if (chosenRoute.slice(1).some((point) => activeBody.some((bodyPoint) => coordinateKey(bodyPoint) === coordinateKey(point)))) {
-      throw new Error("Snake route crossed its active body");
-    }
-
     chosenRoute.slice(1).forEach((point) => {
       path.push({ x: left + point.x * step, y: top + point.y * step });
       activeBody.push({ ...point });
