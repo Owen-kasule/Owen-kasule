@@ -1,4 +1,4 @@
-<svg width="990" height="250" viewBox="0 0 990 250" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="990" height="280" viewBox="0 0 990 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Owen-kasule GitHub stats</title>
   <desc id="desc">GitHub contribution totals, current streak, and longest streak for Owen-kasule.</desc>
   <style>
@@ -7,22 +7,22 @@
     .muted { font: 700 24px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #a5a5a5; }
     .green { fill: #C2FFC7; }
   </style>
-  <rect x="1" y="1" width="988" height="248" rx="8" fill="#111111" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="330" y1="54" x2="330" y2="196" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="660" y1="54" x2="660" y2="196" stroke="#d7d7d7" stroke-width="2" />
+  <rect x="1" y="1" width="988" height="278" rx="8" fill="#111111" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="330" y1="48" x2="330" y2="232" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="660" y1="48" x2="660" y2="232" stroke="#d7d7d7" stroke-width="2" />
 
   <text class="number" x="165" y="112" text-anchor="middle">984</text>
-  <text class="label" x="165" y="156" text-anchor="middle">Total Contributions</text>
-  <text class="muted" x="165" y="196" text-anchor="middle">Aug 24 - Present</text>
+  <text class="label" x="165" y="164" text-anchor="middle">Total Contributions</text>
+  <text class="muted" x="165" y="210" text-anchor="middle">Aug 24 - Present</text>
 
-  <circle cx="495" cy="104" r="75" stroke="#C2FFC7" stroke-width="10" opacity="0.25" />
-  <circle cx="495" cy="104" r="75" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 104)" stroke-dasharray="452.2 471" />
+  <circle cx="495" cy="94" r="66" stroke="#C2FFC7" stroke-width="10" opacity="0.25" />
+  <circle cx="495" cy="94" r="66" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 94)" stroke-dasharray="398.1 414.7" />
   <path d="M495 32 C511 48 516 63 505 75 C496 86 476 81 480 63 C481 55 488 51 492 42 C495 51 506 58 500 67 C509 58 504 43 495 32Z" fill="#CB9DF0" />
   <text class="number" x="495" y="119" text-anchor="middle">7</text>
-  <text class="label green" x="495" y="175" text-anchor="middle">Current Streak</text>
-  <text class="muted" x="495" y="214" text-anchor="middle">Aug 23 - Aug 29</text>
+  <text class="label green" x="495" y="202" text-anchor="middle">Current Streak</text>
+  <text class="muted" x="495" y="242" text-anchor="middle">Aug 23 - Aug 29</text>
 
   <text class="number" x="825" y="112" text-anchor="middle">7</text>
-  <text class="label" x="825" y="156" text-anchor="middle">Longest Streak</text>
-  <text class="muted" x="825" y="196" text-anchor="middle">Aug 23 - Aug 29</text>
+  <text class="label" x="825" y="164" text-anchor="middle">Longest Streak</text>
+  <text class="muted" x="825" y="210" text-anchor="middle">Aug 23 - Aug 29</text>
 </svg>
