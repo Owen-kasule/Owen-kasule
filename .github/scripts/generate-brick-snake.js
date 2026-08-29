@@ -424,7 +424,24 @@ function renderStatsCard(stats) {
 `;
 }
 
-function renderActivityCard(weeks) {
+function getYearWeeks(days, year) {
+  const firstDay = new Date(`${year}-01-01T00:00:00Z`);
+  const offset = firstDay.getUTCDay();
+  const daysInYear = new Date(Date.UTC(year + 1, 0, 0)).getUTCDate() === 366 ? 366 : 365;
+  const dayMap = new Map(days.filter((day) => day.date.startsWith(`${year}-`)).map((day) => [day.date, day]));
+  const weekCount = Math.ceil((offset + daysInYear) / 7);
+
+  return Array.from({ length: weekCount }, (_, weekIndex) => ({
+    contributionDays: Array.from({ length: 7 }, (_, weekday) => {
+      const dayOffset = weekIndex * 7 + weekday - offset;
+      if (dayOffset < 0 || dayOffset >= daysInYear) return { date: `${year}-01-01`, contributionCount: 0, weekday };
+      const date = new Date(Date.UTC(year, 0, 1 + dayOffset)).toISOString().slice(0, 10);
+      return dayMap.get(date) || { date, contributionCount: 0, weekday };
+    }),
+  }));
+}
+
+function renderActivityCard(weeks, year, availableYears) {
   const width = 1100;
   const height = 600;
   const bg = "#161b22";
@@ -476,7 +493,8 @@ function renderActivityCard(weeks) {
     .activity-label { font: 500 16px ui-sans-serif, system-ui, sans-serif; fill: ${muted}; }
   </style>
   <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="${bg}" stroke="${border}" stroke-width="2" />
-  <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in the last year</text>
+  <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in ${year}</text>
+  ${availableYears.map((availableYear, index) => `<a href="https://raw.githubusercontent.com/${username}/${username}/output/github-activity-card-${availableYear}.svg"><rect x="1012" y="${24 + index * 36}" width="70" height="28" rx="6" fill="${availableYear === String(year) ? "#2459a6" : panel}" /><text x="1047" y="${44 + index * 36}" text-anchor="middle" fill="${text}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">${availableYear}</text></a>`).join("\n")}
   <rect x="${left - 18}" y="${top - 34}" width="${width - left - 36}" height="210" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
   ${monthLabels.map((label) => `<text class="muted" x="${left + label.index * step}" y="${top - 12}">${label.label}</text>`).join("\n")}
   <text class="muted" x="25" y="${top + 30}">Mon</text>
@@ -633,7 +651,13 @@ async function main() {
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake.svg`, renderSnakeSvg(weeks, false));
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake-dark.svg`, renderSnakeSvg(weeks, true));
   fs.writeFileSync(`${outputDir}/github-stats-card.svg`, renderStatsCard(stats));
-  fs.writeFileSync(`${outputDir}/github-activity-card.svg`, renderActivityCard(weeks));
+  const availableYears = Array.from(new Set(allTimeDays.map((day) => day.date.slice(0, 4)))).sort((a, b) => Number(b) - Number(a));
+  const currentYear = new Date().getUTCFullYear();
+  const years = availableYears.includes(String(currentYear)) ? availableYears : [String(currentYear), ...availableYears];
+  years.forEach((year) => {
+    fs.writeFileSync(`${outputDir}/github-activity-card-${year}.svg`, renderActivityCard(getYearWeeks(allTimeDays, Number(year)), Number(year), years));
+  });
+  fs.writeFileSync(`${outputDir}/github-activity-card.svg`, renderActivityCard(getYearWeeks(allTimeDays, currentYear), currentYear, years));
 }
 
 main().catch((error) => {
