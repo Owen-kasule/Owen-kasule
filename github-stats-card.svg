@@ -1,28 +1,29 @@
-<svg width="990" height="280" viewBox="0 0 990 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="990" height="390" viewBox="0 0 990 390" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Owen-kasule GitHub stats</title>
   <desc id="desc">GitHub contribution totals, current streak, and longest streak for Owen-kasule.</desc>
   <style>
     .number { font: 800 56px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
-    .label { font: 700 28px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
-    .muted { font: 700 24px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #a5a5a5; }
+    .middle-number { font: 800 52px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+    .label { font: 700 27px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+    .muted { font: 700 23px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #a5a5a5; }
     .green { fill: #C2FFC7; }
   </style>
-  <rect x="1" y="1" width="988" height="278" rx="8" fill="#111111" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="330" y1="48" x2="330" y2="232" stroke="#d7d7d7" stroke-width="2" />
-  <line x1="660" y1="48" x2="660" y2="232" stroke="#d7d7d7" stroke-width="2" />
+  <rect x="1" y="1" width="988" height="388" rx="8" fill="#111111" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="330" y1="62" x2="330" y2="328" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="660" y1="62" x2="660" y2="328" stroke="#d7d7d7" stroke-width="2" />
 
-  <text class="number" x="165" y="112" text-anchor="middle">2,015</text>
-  <text class="label" x="165" y="164" text-anchor="middle">Total Contributions</text>
-  <text class="muted" x="165" y="210" text-anchor="middle">Sep 20 - Present</text>
+  <text class="number" x="165" y="170" text-anchor="middle">2,017</text>
+  <text class="label" x="165" y="236" text-anchor="middle">Total Contributions</text>
+  <text class="muted" x="165" y="300" text-anchor="middle">Sep 20, 2022 - Present</text>
 
-  <circle cx="495" cy="94" r="66" stroke="#C2FFC7" stroke-width="10" opacity="0.25" />
-  <circle cx="495" cy="94" r="66" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 94)" stroke-dasharray="322.5 414.7" />
-  <path d="M495 32 C511 48 516 63 505 75 C496 86 476 81 480 63 C481 55 488 51 492 42 C495 51 506 58 500 67 C509 58 504 43 495 32Z" fill="#CB9DF0" />
-  <text class="number" x="495" y="119" text-anchor="middle">7</text>
-  <text class="label green" x="495" y="202" text-anchor="middle">Current Streak</text>
-  <text class="muted" x="495" y="242" text-anchor="middle">Aug 23 - Aug 29</text>
+  <circle cx="495" cy="140" r="78" stroke="#C2FFC7" stroke-width="10" opacity="0.25" />
+  <circle cx="495" cy="140" r="78" stroke="#C2FFC7" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 140)" stroke-dasharray="381.2 490.1" />
+  <path d="M495 43 C511 59 516 74 505 86 C496 97 476 92 480 74 C481 66 488 62 492 53 C495 62 506 69 500 78 C509 69 504 54 495 43Z" fill="#CB9DF0" />
+  <text class="middle-number" x="495" y="164" text-anchor="middle">7</text>
+  <text class="label green" x="495" y="280" text-anchor="middle">Current Streak</text>
+  <text class="muted" x="495" y="330" text-anchor="middle">Aug 23 - Aug 29</text>
 
-  <text class="number" x="825" y="112" text-anchor="middle">9</text>
-  <text class="label" x="825" y="164" text-anchor="middle">Longest Streak</text>
-  <text class="muted" x="825" y="210" text-anchor="middle">Jun 12 - Jun 20</text>
+  <text class="number" x="825" y="170" text-anchor="middle">9</text>
+  <text class="label" x="825" y="236" text-anchor="middle">Longest Streak</text>
+  <text class="muted" x="825" y="300" text-anchor="middle">Jun 12 - Jun 20</text>
 </svg>
