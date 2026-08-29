@@ -11,7 +11,7 @@
   <line x1="330" y1="48" x2="330" y2="232" stroke="#d7d7d7" stroke-width="2" />
   <line x1="660" y1="48" x2="660" y2="232" stroke="#d7d7d7" stroke-width="2" />
 
-  <text class="number" x="165" y="112" text-anchor="middle">2,012</text>
+  <text class="number" x="165" y="112" text-anchor="middle">2,013</text>
   <text class="label" x="165" y="164" text-anchor="middle">Total Contributions</text>
   <text class="muted" x="165" y="210" text-anchor="middle">Sep 20 - Present</text>
 
