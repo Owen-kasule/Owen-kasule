@@ -4,7 +4,7 @@ const { execFileSync } = require("child_process");
 
 const username = process.env.GITHUB_REPOSITORY_OWNER || "Owen-kasule";
 const token = process.env.GITHUB_TOKEN || getGhToken();
-const animationDuration = "70500ms";
+const animationDuration = "180000ms";
 
 function getGhToken() {
   try {
@@ -142,34 +142,102 @@ function getEatenFillAnimation(originalFill, emptyFill, progress) {
   return `<animate attributeName="fill" dur="${animationDuration}" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${eatAt.toFixed(4)};${turn.toFixed(4)};1" values="${originalFill};${originalFill};${emptyFill};${emptyFill}" />`;
 }
 
-function addRoute(path, from, to, step) {
-  const current = { ...from };
-
-  while (current.x !== to.x || current.y !== to.y) {
-    if (current.x !== to.x) {
-      current.x += Math.sign(to.x - current.x) * step;
-    } else {
-      current.y += Math.sign(to.y - current.y) * step;
-    }
-    path.push({ ...current });
-  }
-
-  return current;
+function coordinateKey(point) {
+  return `${point.x}:${point.y}`;
 }
 
-function buildSnakePath(targets, left, top, step) {
-  const path = [];
-  const exitY = top - 2 * step;
-  let current = { x: left - 2 * step, y: exitY };
+function isBoardCell(point, boardWidth, boardHeight) {
+  return point.x >= 0 && point.x < boardWidth && point.y >= 0 && point.y < boardHeight;
+}
 
-  path.push({ ...current });
+function findSafeRoute(start, goal, blocked, boardWidth, boardHeight) {
+  const minX = -1;
+  const maxX = boardWidth;
+  const minY = -2;
+  const maxY = boardHeight + 1;
+  const queue = [{ ...start }];
+  const previous = new Map([[coordinateKey(start), null]]);
+  const directions = [
+    { x: 1, y: 0 },
+    { x: -1, y: 0 },
+    { x: 0, y: 1 },
+    { x: 0, y: -1 },
+  ];
 
-  targets.forEach((target) => {
-    // The top lane gives the snake room to leave the board between distant targets.
-    current = addRoute(path, current, { x: target.x, y: exitY }, step);
-    current = addRoute(path, current, { x: target.x, y: target.y }, step);
+  for (let index = 0; index < queue.length; index += 1) {
+    const current = queue[index];
+    if (coordinateKey(current) === coordinateKey(goal)) break;
+
+    directions.forEach((direction) => {
+      const next = { x: current.x + direction.x, y: current.y + direction.y };
+      const key = coordinateKey(next);
+      const walkable = !isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key) || key === coordinateKey(goal);
+
+      if (next.x < minX || next.x > maxX || next.y < minY || next.y > maxY || previous.has(key) || !walkable) return;
+      previous.set(key, current);
+      queue.push(next);
+    });
+  }
+
+  const goalKey = coordinateKey(goal);
+  if (!previous.has(goalKey)) {
+    return null;
+  }
+
+  const route = [];
+  let current = goal;
+  while (current) {
+    route.unshift(current);
+    current = previous.get(coordinateKey(current));
+  }
+  return route;
+}
+
+function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
+  const path = [{ x: left - step, y: top - 2 * step }];
+  const blocked = new Set(targets.map((target) => coordinateKey({ x: target.weekIndex, y: target.weekday })));
+  const remaining = targets.slice();
+  let current = { x: -1, y: -2 };
+
+  while (remaining.length) {
+    let chosenIndex = -1;
+    let chosenRoute = null;
+
+    // Keep the lightest-first preference, but skip a target until it is reachable without crossing green cells.
+    for (let index = 0; index < remaining.length; index += 1) {
+      const candidate = remaining[index];
+      const goal = { x: candidate.weekIndex, y: candidate.weekday };
+      const goalKey = coordinateKey(goal);
+      blocked.delete(goalKey);
+      const route = findSafeRoute(current, goal, blocked, boardWidth, boardHeight);
+      blocked.add(goalKey);
+
+      if (route) {
+        chosenIndex = index;
+        chosenRoute = route;
+        break;
+      }
+    }
+
+    if (chosenIndex === -1 || !chosenRoute) {
+      throw new Error("No safe route remains for the contribution snake");
+    }
+
+    const target = remaining.splice(chosenIndex, 1)[0];
+    const goal = { x: target.weekIndex, y: target.weekday };
+    blocked.delete(coordinateKey(goal));
+
+    if (chosenRoute.some((point) => blocked.has(coordinateKey(point)))) {
+      throw new Error("Snake route crossed a future green contribution cell");
+    }
+
+    chosenRoute.slice(1).forEach((point) => {
+      path.push({ x: left + point.x * step, y: top + point.y * step });
+    });
+
     target.pathIndex = path.length - 1;
-  });
+    current = goal;
+  }
 
   return path;
 }
@@ -296,7 +364,6 @@ function renderSnakeSvg(weeks, dark) {
   const height = footerTop + 92;
   const bg = dark ? "#1f2933" : "#f6f8fa";
   const text = dark ? "#edf2f7" : "#1f2933";
-  const muted = dark ? "#b8c2cc" : "#57606a";
   const stroke = dark ? "#263341" : "#d0d7de";
   const emptyFill = dark ? "#f0f3f6" : "#ebedf0";
   const paddle = "#9BE9A8";
@@ -309,7 +376,7 @@ function renderSnakeSvg(weeks, dark) {
       const x = left + weekIndex * step;
       const y = top + day.weekday * step;
       const fill = contributionColor(day.contributionCount, dark);
-      const target = { ...day, x, y, level: contributionLevel(day.contributionCount) };
+      const target = { ...day, weekIndex, x, y, level: contributionLevel(day.contributionCount) };
 
       if (day.contributionCount > 0) {
         targets.push(target);
@@ -324,7 +391,7 @@ function renderSnakeSvg(weeks, dark) {
     return b.weekIndex - a.weekIndex;
   });
 
-  const path = buildSnakePath(targets, left, top, step);
+  const path = buildSnakePath(targets, left, top, step, weeks.length, 7);
   const pathData = { path, ...compressPath(path) };
   const targetPositions = new Map(targets.map((target) => [`${target.x}:${target.y}`, target]));
   path.forEach((point, pathIndex) => {
@@ -371,13 +438,11 @@ function renderSnakeSvg(weeks, dark) {
   <desc id="desc">A blocky arcade-style snake eats the lightest green contribution bricks first, leaving a clean white path until the board is cleared.</desc>
   <style>
     .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
-    .label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: ${muted}; letter-spacing: 1px; }
     .quote { font: 700 16px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
     .author { font: 600 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: ${paddle}; letter-spacing: 1px; }
   </style>
   <rect width="100%" height="100%" rx="12" fill="${bg}" />
   <text class="title" x="${width / 2}" y="38" text-anchor="middle">Contribution Snake</text>
-  <text class="label" x="${width / 2}" y="61" text-anchor="middle">EATS LIGHT GREEN FIRST / CLEARS TO WHITE</text>
   <g>${cells.join("\n")}</g>
   <g aria-label="One continuous contribution snake">${snake}</g>
   <g aria-label="Contribution colors eaten in order">${renderProgressBar(eatenTargets, left, footerTop, gridWidth, 12, stroke)}</g>
