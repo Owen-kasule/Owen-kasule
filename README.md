@@ -43,13 +43,12 @@
 <details open>
 <summary>About Me</summary>
 <ul>
-  <li>🔭 I build full-stack web applications, backend services, APIs, and database-driven products.</li>
-  <li>🎓 I am studying Software Development at BYU-Idaho and hold a Diploma in Information Technology from ISBAT University.</li>
-  <li>💼 My experience includes software development, database work, debugging, cloud deployment, and technical support.</li>
-  <li>🌱 I am currently growing deeper in AWS, Python data analysis, backend architecture, and product-focused engineering.</li>
-  <li>👯 I enjoy collaborating on products where software improves real workflows for people and organizations.</li>
-  <li>💬 Ask me about full-stack development, APIs, databases, AWS, Linux, Git, and practical problem solving.</li>
-  <li>⚡ Fun fact: I can debug code and still keep an eye on an Arsenal match.</li>
+  <li>🔭 I am a software engineer building full-stack web applications, backend services, APIs, and database-driven products.</li>
+  <li>🎓 I graduated in Software Development from BYU-Idaho and hold a Diploma in Information Technology from ISBAT University.</li>
+  <li>💼 My experience includes software engineering, databases, debugging, cloud deployment, technical support, and digital marketing.</li>
+  <li>✍️ I create AEO content that helps people and answer engines discover useful information.</li>
+  <li>💬 Ask me about full-stack development, APIs, AWS, Linux, Git, digital marketing, and AEO content creation.</li>
+  <li>⚡ Fun fact: I'm one of the crazy ones who thinks they can change the world.</li>
 </ul>
 </details>
 
