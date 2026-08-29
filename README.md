@@ -36,7 +36,7 @@
 <details open>
 <summary>Developer Quote</summary>
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1700&color=C2FFC7&center=true&vCenter=true&random=false&width=900&lines=I+build+software+that+solves+real+problems.;Clean+code.+Useful+products.+Reliable+systems.;Always+learning%2C+always+shipping." alt="Developer typing quote" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3200&pause=1800&color=C2FFC7&center=true&vCenter=true&random=false&width=900&lines=The+best+way+to+predict+the+future+is+to+invent+it.;Alan+Kay" alt="Alan Kay developer quote" />
 </p>
 </details>
 
@@ -180,4 +180,16 @@
 
 <p align="center">
   <i>Thanks for visiting. I am always building, learning, and looking for better ways to turn ideas into useful software.</i>
+</p>
+
+<br />
+
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:CB9DF0,100:C2FFC7&height=120&section=footer&text=Thanks%20for%20visiting!&fontColor=000000&fontSize=28&fontAlignY=72" alt="Thanks for visiting footer" />
+</div>
+
+<p align="center">
+  <strong>“The best way to predict the future is to invent it.”</strong>
+  <br />
+  <sub>Alan Kay</sub>
 </p>
