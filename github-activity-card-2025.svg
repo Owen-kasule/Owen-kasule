@@ -15,7 +15,7 @@
 <a href="https://github.com/Owen-kasule/Owen-kasule#contribution-year-2024"><rect x="1020" y="96" width="62" height="28" rx="6" fill="#1f2630" /><text x="1051" y="116" text-anchor="middle" fill="#f0f6fc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">2024</text></a>
 <a href="https://github.com/Owen-kasule/Owen-kasule#contribution-year-2023"><rect x="1020" y="132" width="62" height="28" rx="6" fill="#1f2630" /><text x="1051" y="152" text-anchor="middle" fill="#f0f6fc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">2023</text></a>
 <a href="https://github.com/Owen-kasule/Owen-kasule#contribution-year-2022"><rect x="1020" y="168" width="62" height="28" rx="6" fill="#1f2630" /><text x="1051" y="188" text-anchor="middle" fill="#f0f6fc" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">2022</text></a>
-  <rect x="64" y="62" width="940" height="210" rx="8" fill="#1f2630" stroke="#8b949e" stroke-width="1.5" />
+  <rect x="64" y="62" width="940" height="240" rx="8" fill="#1f2630" stroke="#8b949e" stroke-width="1.5" />
   <text class="muted" x="82" y="84">Jan</text>
 <text class="muted" x="167" y="84">Feb</text>
 <text class="muted" x="235" y="84">Mar</text>
@@ -409,16 +409,16 @@
 <rect x="203" y="281" width="16" height="16" rx="3" fill="#40c463" />
 <rect x="225" y="281" width="16" height="16" rx="3" fill="#9be9a8" />
   <text class="muted" x="257" y="294">More</text>
-  <line x1="20" y1="276" x2="1080" y2="276" stroke="#8b949e" stroke-width="1.5" />
-  <text class="section" x="44" y="322">Activity overview</text>
-  <text class="body" x="44" y="370">Software engineering contributions</text>
-  <text class="muted" x="44" y="402">Full-stack development, backend services, APIs,</text>
-  <text class="muted" x="44" y="430">databases, cloud deployment, and technical support.</text>
-  <line x1="610" y1="298" x2="610" y2="552" stroke="#8b949e" stroke-width="1.5" />
-  <circle cx="915" cy="414" r="8" fill="#9be9a8" />
-  <line x1="915" y1="414" x2="915" y2="392" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="915" y="370" text-anchor="middle">Code commits</text>
-<line x1="915" y1="414" x2="820" y2="495" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="820" y="522" text-anchor="middle">Pull requests</text>
-<line x1="915" y1="414" x2="1025" y2="432" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="1040" y="438" text-anchor="start">Issues</text>
-<line x1="915" y1="414" x2="915" y2="300" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="915" y="284" text-anchor="middle">Code reviews</text>
-  <circle cx="915" cy="414" r="12" fill="#161b22" stroke="#9be9a8" stroke-width="3" />
+  <line x1="20" y1="324" x2="1080" y2="324" stroke="#8b949e" stroke-width="1.5" />
+  <text class="section" x="44" y="370">Activity overview</text>
+  <text class="body" x="44" y="418">Software engineering contributions</text>
+  <text class="muted" x="44" y="450">Full-stack development, backend services, APIs,</text>
+  <text class="muted" x="44" y="478">databases, cloud deployment, and technical support.</text>
+  <line x1="610" y1="346" x2="610" y2="575" stroke="#8b949e" stroke-width="1.5" />
+  <circle cx="915" cy="450" r="8" fill="#9be9a8" />
+  <line x1="915" y1="450" x2="800" y2="450" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="780" y="442" text-anchor="end">Code commits</text>
+<line x1="915" y1="450" x2="850" y2="530" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="850" y="555" text-anchor="middle">Pull requests</text>
+<line x1="915" y1="450" x2="1035" y2="470" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="1048" y="476" text-anchor="start">Issues</text>
+<line x1="915" y1="450" x2="915" y2="340" stroke="#3fb950" stroke-width="3" opacity="0.85" /><text class="activity-label" x="915" y="328" text-anchor="middle">Code reviews</text>
+  <circle cx="915" cy="450" r="12" fill="#161b22" stroke="#9be9a8" stroke-width="3" />
 </svg>
