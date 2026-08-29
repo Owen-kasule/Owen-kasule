@@ -424,6 +424,81 @@ function renderStatsCard(stats) {
 `;
 }
 
+function renderActivityCard(weeks) {
+  const width = 1100;
+  const height = 600;
+  const bg = "#161b22";
+  const panel = "#1f2630";
+  const text = "#f0f6fc";
+  const muted = "#a8b2c1";
+  const border = "#8b949e";
+  const green = "#3fb950";
+  const lightGreen = "#9be9a8";
+  const cell = 13;
+  const gap = 4;
+  const step = cell + gap;
+  const left = 82;
+  const top = 96;
+  const recentDays = weeks.flatMap((week) => week.contributionDays);
+  const recentTotal = recentDays.reduce((sum, day) => sum + day.contributionCount, 0);
+  const monthLabels = [];
+  weeks.forEach((week, index) => {
+    const firstDay = week.contributionDays[0];
+    if (!firstDay) return;
+    const month = new Date(`${firstDay.date}T00:00:00Z`).getUTCMonth();
+    if (!monthLabels.some((label) => label.month === month)) {
+      monthLabels.push({ month, index, label: new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" }).format(new Date(`${firstDay.date}T00:00:00Z`)) });
+    }
+  });
+
+  const cells = weeks.map((week, weekIndex) => week.contributionDays.map((day) => {
+    const fill = day.contributionCount === 0
+      ? "#0d1117"
+      : contributionColor(day.contributionCount, true);
+    return `<rect x="${left + weekIndex * step}" y="${top + day.weekday * step}" width="${cell}" height="${cell}" rx="3" fill="${fill}"><title>${day.date}: ${day.contributionCount} contributions</title></rect>`;
+  }).join("\n")).join("\n");
+
+  const spokes = [
+    { label: "Code commits", x2: 915, y2: 392, tx: 915, ty: 370, anchor: "middle" },
+    { label: "Pull requests", x2: 820, y2: 495, tx: 820, ty: 522, anchor: "middle" },
+    { label: "Issues", x2: 1025, y2: 432, tx: 1040, ty: 438, anchor: "start" },
+    { label: "Code reviews", x2: 915, y2: 300, tx: 915, ty: 284, anchor: "middle" },
+  ].map((spoke) => `<line x1="915" y1="414" x2="${spoke.x2}" y2="${spoke.y2}" stroke="${green}" stroke-width="3" opacity="0.85" /><text class="activity-label" x="${spoke.tx}" y="${spoke.ty}" text-anchor="${spoke.anchor}">${spoke.label}</text>`).join("\n");
+
+  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="activity-title activity-desc">
+  <title id="activity-title">${username} GitHub contribution activity</title>
+  <desc id="activity-desc">A graphical one-year GitHub contribution calendar and activity overview for ${username}.</desc>
+  <style>
+    .heading { font: 700 27px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
+    .section { font: 700 23px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
+    .body { font: 500 20px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
+    .muted { font: 500 17px ui-sans-serif, system-ui, sans-serif; fill: ${muted}; }
+    .activity-label { font: 500 16px ui-sans-serif, system-ui, sans-serif; fill: ${muted}; }
+  </style>
+  <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="${bg}" stroke="${border}" stroke-width="2" />
+  <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in the last year</text>
+  <rect x="${left - 18}" y="${top - 34}" width="${width - left - 36}" height="210" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
+  ${monthLabels.map((label) => `<text class="muted" x="${left + label.index * step}" y="${top - 12}">${label.label}</text>`).join("\n")}
+  <text class="muted" x="25" y="${top + 30}">Mon</text>
+  <text class="muted" x="25" y="${top + 98}">Wed</text>
+  <text class="muted" x="25" y="${top + 166}">Fri</text>
+  <g aria-label="One-year contribution calendar">${cells}</g>
+  <text class="muted" x="${left}" y="${top + 198}">Less</text>
+  ${["#0d1117", "#216e39", "#30a14e", "#40c463", "#9be9a8"].map((fill, index) => `<rect x="${left + 55 + index * 22}" y="${top + 185}" width="16" height="16" rx="3" fill="${fill}" />`).join("\n")}
+  <text class="muted" x="${left + 175}" y="${top + 198}">More</text>
+  <line x1="20" y1="276" x2="1080" y2="276" stroke="${border}" stroke-width="1.5" />
+  <text class="section" x="44" y="322">Activity overview</text>
+  <text class="body" x="44" y="370">Software engineering contributions</text>
+  <text class="muted" x="44" y="402">Full-stack development, backend services, APIs,</text>
+  <text class="muted" x="44" y="430">databases, cloud deployment, and technical support.</text>
+  <line x1="610" y1="298" x2="610" y2="552" stroke="${border}" stroke-width="1.5" />
+  <circle cx="915" cy="414" r="8" fill="${lightGreen}" />
+  ${spokes}
+  <circle cx="915" cy="414" r="12" fill="${bg}" stroke="${lightGreen}" stroke-width="3" />
+</svg>
+`;
+}
+
 function renderSnakeSvg(weeks, dark) {
   const cell = 11;
   const gap = 4;
@@ -558,6 +633,7 @@ async function main() {
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake.svg`, renderSnakeSvg(weeks, false));
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake-dark.svg`, renderSnakeSvg(weeks, true));
   fs.writeFileSync(`${outputDir}/github-stats-card.svg`, renderStatsCard(stats));
+  fs.writeFileSync(`${outputDir}/github-activity-card.svg`, renderActivityCard(weeks));
 }
 
 main().catch((error) => {
