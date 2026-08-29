@@ -414,7 +414,7 @@ function renderSnakeSvg(weeks, dark) {
   const stroke = dark ? "#263341" : "#d0d7de";
   const emptyFill = dark ? "#f0f3f6" : "#ebedf0";
   const paddle = "#9BE9A8";
-  const snakeColors = ["#CB9DF0", "#a855f7", "#8a00a8", "#7a007c", "#65006d", "#4c005c"];
+  const snakeColors = ["#f0b6ff", "#d58aff", "#b866f2", "#9844c7"];
   const cells = [];
   const targets = [];
 
@@ -473,11 +473,11 @@ function renderSnakeSvg(weeks, dark) {
   });
 
   const snake = [
-    { size: cell + 4, offset: -2, color: snakeColors[0], lag: 0, opacity: 1 },
-    { size: cell + 2, offset: -1, color: snakeColors[1], lag: 3, opacity: 0.95 },
-    { size: cell, offset: 0, color: snakeColors[2], lag: 6, opacity: 0.9 },
-    { size: cell - 1, offset: 0.5, color: snakeColors[3], lag: 9, opacity: 0.85 },
-  ].map((segment) => `<rect x="${segment.offset}" y="${segment.offset}" width="${segment.size}" height="${segment.size}" rx="3.5" fill="${segment.color}" opacity="${segment.opacity}">${snakeMotion(pathData, segment.lag)}</rect>`).join("\n");
+    { size: step + 2, offset: -1, color: snakeColors[0], lag: 0, opacity: 1 },
+    { size: step, offset: 0, color: snakeColors[1], lag: 1, opacity: 0.98 },
+    { size: step, offset: 0, color: snakeColors[2], lag: 2, opacity: 0.96 },
+    { size: step, offset: 0, color: snakeColors[3], lag: 3, opacity: 0.94 },
+  ].map((segment) => `<rect x="${segment.offset}" y="${segment.offset}" width="${segment.size}" height="${segment.size}" rx="3.5" fill="${segment.color}" stroke="#2a173d" stroke-width="0.8" opacity="${segment.opacity}">${snakeMotion(pathData, segment.lag)}</rect>`).join("\n");
   const eatenTargets = targets.slice().sort((a, b) => a.eatIndex - b.eatIndex);
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
