@@ -181,6 +181,18 @@
 </p>
 </details>
 
+<details open>
+<summary>Contribution Activity</summary>
+<p align="center">
+  <a href="https://github.com/Owen-kasule?tab=overview">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Owen-kasule&theme=github-compact&hide_border=true&area=true" alt="Owen Kasule's GitHub contribution activity graph" />
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/Owen-kasule?tab=overview">View my complete GitHub contribution activity</a>
+</p>
+</details>
+
 <p align="center">
   <i>Thanks for visiting. I am always building, learning, and looking for better ways to turn ideas into useful software.</i>
 </p>
