@@ -476,11 +476,11 @@ function renderActivityCard(weeks, year, availableYears) {
   }).join("\n")).join("\n");
 
   const spokes = [
-    { label: "Code commits", x2: 915, y2: 392, tx: 915, ty: 370, anchor: "middle" },
-    { label: "Pull requests", x2: 820, y2: 495, tx: 820, ty: 522, anchor: "middle" },
-    { label: "Issues", x2: 1025, y2: 432, tx: 1040, ty: 438, anchor: "start" },
-    { label: "Code reviews", x2: 915, y2: 300, tx: 915, ty: 284, anchor: "middle" },
-  ].map((spoke) => `<line x1="915" y1="414" x2="${spoke.x2}" y2="${spoke.y2}" stroke="${green}" stroke-width="3" opacity="0.85" /><text class="activity-label" x="${spoke.tx}" y="${spoke.ty}" text-anchor="${spoke.anchor}">${spoke.label}</text>`).join("\n");
+    { label: "Code commits", x2: 800, y2: 450, tx: 780, ty: 442, anchor: "end" },
+    { label: "Pull requests", x2: 850, y2: 530, tx: 850, ty: 555, anchor: "middle" },
+    { label: "Issues", x2: 1035, y2: 470, tx: 1048, ty: 476, anchor: "start" },
+    { label: "Code reviews", x2: 915, y2: 340, tx: 915, ty: 328, anchor: "middle" },
+  ].map((spoke) => `<line x1="915" y1="450" x2="${spoke.x2}" y2="${spoke.y2}" stroke="${green}" stroke-width="3" opacity="0.85" /><text class="activity-label" x="${spoke.tx}" y="${spoke.ty}" text-anchor="${spoke.anchor}">${spoke.label}</text>`).join("\n");
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="activity-title activity-desc">
   <title id="activity-title">${username} GitHub contribution activity</title>
@@ -495,7 +495,7 @@ function renderActivityCard(weeks, year, availableYears) {
   <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="${bg}" stroke="${border}" stroke-width="2" />
   <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in ${year}</text>
   ${availableYears.map((availableYear, index) => `<a href="https://github.com/${username}/${username}#contribution-year-${availableYear}"><rect x="1020" y="${24 + index * 36}" width="62" height="28" rx="6" fill="${availableYear === String(year) ? "#2459a6" : panel}" /><text x="1051" y="${44 + index * 36}" text-anchor="middle" fill="${text}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">${availableYear}</text></a>`).join("\n")}
-  <rect x="${left - 18}" y="${top - 34}" width="940" height="210" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
+  <rect x="${left - 18}" y="${top - 34}" width="940" height="240" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
   ${monthLabels.map((label) => `<text class="muted" x="${left + label.index * step}" y="${top - 12}">${label.label}</text>`).join("\n")}
   <text class="muted" x="25" y="${top + 30}">Mon</text>
   <text class="muted" x="25" y="${top + 98}">Wed</text>
@@ -504,15 +504,15 @@ function renderActivityCard(weeks, year, availableYears) {
   <text class="muted" x="${left}" y="${top + 198}">Less</text>
   ${["#0d1117", "#216e39", "#30a14e", "#40c463", "#9be9a8"].map((fill, index) => `<rect x="${left + 55 + index * 22}" y="${top + 185}" width="16" height="16" rx="3" fill="${fill}" />`).join("\n")}
   <text class="muted" x="${left + 175}" y="${top + 198}">More</text>
-  <line x1="20" y1="276" x2="1080" y2="276" stroke="${border}" stroke-width="1.5" />
-  <text class="section" x="44" y="322">Activity overview</text>
-  <text class="body" x="44" y="370">Software engineering contributions</text>
-  <text class="muted" x="44" y="402">Full-stack development, backend services, APIs,</text>
-  <text class="muted" x="44" y="430">databases, cloud deployment, and technical support.</text>
-  <line x1="610" y1="298" x2="610" y2="552" stroke="${border}" stroke-width="1.5" />
-  <circle cx="915" cy="414" r="8" fill="${lightGreen}" />
+  <line x1="20" y1="324" x2="1080" y2="324" stroke="${border}" stroke-width="1.5" />
+  <text class="section" x="44" y="370">Activity overview</text>
+  <text class="body" x="44" y="418">Software engineering contributions</text>
+  <text class="muted" x="44" y="450">Full-stack development, backend services, APIs,</text>
+  <text class="muted" x="44" y="478">databases, cloud deployment, and technical support.</text>
+  <line x1="610" y1="346" x2="610" y2="575" stroke="${border}" stroke-width="1.5" />
+  <circle cx="915" cy="450" r="8" fill="${lightGreen}" />
   ${spokes}
-  <circle cx="915" cy="414" r="12" fill="${bg}" stroke="${lightGreen}" stroke-width="3" />
+  <circle cx="915" cy="450" r="12" fill="${bg}" stroke="${lightGreen}" stroke-width="3" />
 </svg>
 `;
 }
