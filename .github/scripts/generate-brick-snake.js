@@ -424,99 +424,6 @@ function renderStatsCard(stats) {
 `;
 }
 
-function getYearWeeks(days, year) {
-  const firstDay = new Date(`${year}-01-01T00:00:00Z`);
-  const offset = firstDay.getUTCDay();
-  const daysInYear = new Date(Date.UTC(year + 1, 0, 0)).getUTCDate() === 366 ? 366 : 365;
-  const dayMap = new Map(days.filter((day) => day.date.startsWith(`${year}-`)).map((day) => [day.date, day]));
-  const weekCount = Math.ceil((offset + daysInYear) / 7);
-
-  return Array.from({ length: weekCount }, (_, weekIndex) => ({
-    contributionDays: Array.from({ length: 7 }, (_, weekday) => {
-      const dayOffset = weekIndex * 7 + weekday - offset;
-      if (dayOffset < 0 || dayOffset >= daysInYear) return { date: `${year}-01-01`, contributionCount: 0, weekday };
-      const date = new Date(Date.UTC(year, 0, 1 + dayOffset)).toISOString().slice(0, 10);
-      return dayMap.get(date) || { date, contributionCount: 0, weekday };
-    }),
-  }));
-}
-
-function renderActivityCard(weeks, year, availableYears) {
-  const width = 1100;
-  const height = 600;
-  const bg = "#161b22";
-  const panel = "#1f2630";
-  const text = "#f0f6fc";
-  const muted = "#a8b2c1";
-  const border = "#8b949e";
-  const green = "#3fb950";
-  const lightGreen = "#9be9a8";
-  const cell = 13;
-  const gap = 4;
-  const step = cell + gap;
-  const left = 82;
-  const top = 96;
-  const recentDays = weeks.flatMap((week) => week.contributionDays);
-  const recentTotal = recentDays.reduce((sum, day) => sum + day.contributionCount, 0);
-  const monthLabels = [];
-  weeks.forEach((week, index) => {
-    const firstDay = week.contributionDays[0];
-    if (!firstDay) return;
-    const month = new Date(`${firstDay.date}T00:00:00Z`).getUTCMonth();
-    if (!monthLabels.some((label) => label.month === month)) {
-      monthLabels.push({ month, index, label: new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" }).format(new Date(`${firstDay.date}T00:00:00Z`)) });
-    }
-  });
-
-  const cells = weeks.map((week, weekIndex) => week.contributionDays.map((day) => {
-    const fill = day.contributionCount === 0
-      ? "#0d1117"
-      : contributionColor(day.contributionCount, true);
-    return `<rect x="${left + weekIndex * step}" y="${top + day.weekday * step}" width="${cell}" height="${cell}" rx="3" fill="${fill}"><title>${day.date}: ${day.contributionCount} contributions</title></rect>`;
-  }).join("\n")).join("\n");
-
-  const spokes = [
-    { label: "Code commits", x2: 800, y2: 450, tx: 780, ty: 442, anchor: "end" },
-    { label: "Pull requests", x2: 850, y2: 530, tx: 850, ty: 555, anchor: "middle" },
-    { label: "Issues", x2: 1035, y2: 470, tx: 1048, ty: 476, anchor: "start" },
-    { label: "Code reviews", x2: 915, y2: 340, tx: 915, ty: 328, anchor: "middle" },
-  ].map((spoke) => `<line x1="915" y1="450" x2="${spoke.x2}" y2="${spoke.y2}" stroke="${green}" stroke-width="3" opacity="0.85" /><text class="activity-label" x="${spoke.tx}" y="${spoke.ty}" text-anchor="${spoke.anchor}">${spoke.label}</text>`).join("\n");
-
-  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="activity-title activity-desc">
-  <title id="activity-title">${username} GitHub contribution activity</title>
-  <desc id="activity-desc">A graphical one-year GitHub contribution calendar and activity overview for ${username}.</desc>
-  <style>
-    .heading { font: 700 27px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
-    .section { font: 700 23px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
-    .body { font: 500 20px ui-sans-serif, system-ui, sans-serif; fill: ${text}; }
-    .muted { font: 500 17px ui-sans-serif, system-ui, sans-serif; fill: ${muted}; }
-    .activity-label { font: 500 16px ui-sans-serif, system-ui, sans-serif; fill: ${muted}; }
-  </style>
-  <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="${bg}" stroke="${border}" stroke-width="2" />
-  <text class="heading" x="44" y="48">${formatNumber(recentTotal)} contributions in ${year}</text>
-  ${availableYears.map((availableYear, index) => `<a href="https://github.com/${username}/${username}#contribution-year-${availableYear}"><rect x="1020" y="${24 + index * 36}" width="62" height="28" rx="6" fill="${availableYear === String(year) ? "#2459a6" : panel}" /><text x="1051" y="${44 + index * 36}" text-anchor="middle" fill="${text}" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">${availableYear}</text></a>`).join("\n")}
-  <rect x="${left - 18}" y="${top - 34}" width="940" height="240" rx="8" fill="${panel}" stroke="${border}" stroke-width="1.5" />
-  ${monthLabels.map((label) => `<text class="muted" x="${left + label.index * step}" y="${top - 12}">${label.label}</text>`).join("\n")}
-  <text class="muted" x="25" y="${top + 30}">Mon</text>
-  <text class="muted" x="25" y="${top + 98}">Wed</text>
-  <text class="muted" x="25" y="${top + 166}">Fri</text>
-  <g aria-label="One-year contribution calendar">${cells}</g>
-  <text class="muted" x="${left}" y="${top + 198}">Less</text>
-  ${["#0d1117", "#216e39", "#30a14e", "#40c463", "#9be9a8"].map((fill, index) => `<rect x="${left + 55 + index * 22}" y="${top + 185}" width="16" height="16" rx="3" fill="${fill}" />`).join("\n")}
-  <text class="muted" x="${left + 175}" y="${top + 198}">More</text>
-  <line x1="20" y1="324" x2="1080" y2="324" stroke="${border}" stroke-width="1.5" />
-  <text class="section" x="44" y="370">Activity overview</text>
-  <text class="body" x="44" y="418">Software engineering contributions</text>
-  <text class="muted" x="44" y="450">Full-stack development, backend services, APIs,</text>
-  <text class="muted" x="44" y="478">databases, cloud deployment, and technical support.</text>
-  <line x1="610" y1="346" x2="610" y2="575" stroke="${border}" stroke-width="1.5" />
-  <circle cx="915" cy="450" r="8" fill="${lightGreen}" />
-  ${spokes}
-  <circle cx="915" cy="450" r="12" fill="${bg}" stroke="${lightGreen}" stroke-width="3" />
-</svg>
-`;
-}
-
 function renderSnakeSvg(weeks, dark) {
   const cell = 11;
   const gap = 4;
@@ -651,13 +558,6 @@ async function main() {
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake.svg`, renderSnakeSvg(weeks, false));
   fs.writeFileSync(`${outputDir}/github-contribution-grid-snake-dark.svg`, renderSnakeSvg(weeks, true));
   fs.writeFileSync(`${outputDir}/github-stats-card.svg`, renderStatsCard(stats));
-  const availableYears = Array.from(new Set(allTimeDays.map((day) => day.date.slice(0, 4)))).sort((a, b) => Number(b) - Number(a));
-  const currentYear = new Date().getUTCFullYear();
-  const years = availableYears.includes(String(currentYear)) ? availableYears : [String(currentYear), ...availableYears];
-  years.forEach((year) => {
-    fs.writeFileSync(`${outputDir}/github-activity-card-${year}.svg`, renderActivityCard(getYearWeeks(allTimeDays, Number(year)), Number(year), years));
-  });
-  fs.writeFileSync(`${outputDir}/github-activity-card.svg`, renderActivityCard(getYearWeeks(allTimeDays, currentYear), currentYear, years));
 }
 
 main().catch((error) => {
