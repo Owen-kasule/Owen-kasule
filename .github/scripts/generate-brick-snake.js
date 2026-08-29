@@ -5,6 +5,7 @@ const { execFileSync } = require("child_process");
 const username = process.env.GITHUB_REPOSITORY_OWNER || "Owen-kasule";
 const token = process.env.GITHUB_TOKEN || getGhToken();
 const animationDuration = "180000ms";
+const snakeStartIndex = 3;
 
 function getGhToken() {
   try {
@@ -203,13 +204,15 @@ function isBoardCell(point, boardWidth, boardHeight) {
   return point.x >= 0 && point.x < boardWidth && point.y >= 0 && point.y < boardHeight;
 }
 
-function findSafeRoute(start, goal, blocked, boardWidth, boardHeight) {
+function findSafeRoute(start, goal, blocked, occupied, boardWidth, boardHeight, routeMargin) {
   const minX = -1;
   const maxX = boardWidth;
-  const minY = -2;
-  const maxY = boardHeight + 1;
+  const minY = -2 - routeMargin;
+  const maxY = boardHeight + 1 + routeMargin;
   const queue = [{ ...start }];
   const previous = new Map([[coordinateKey(start), null]]);
+  const startKey = coordinateKey(start);
+  const goalKey = coordinateKey(goal);
   const directions = [
     { x: 1, y: 0 },
     { x: -1, y: 0 },
@@ -224,7 +227,9 @@ function findSafeRoute(start, goal, blocked, boardWidth, boardHeight) {
     directions.forEach((direction) => {
       const next = { x: current.x + direction.x, y: current.y + direction.y };
       const key = coordinateKey(next);
-      const walkable = !isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key) || key === coordinateKey(goal);
+      const walkable = key === startKey
+        || key === goalKey
+        || (!occupied.has(key) && (!isBoardCell(next, boardWidth, boardHeight) || !blocked.has(key)));
 
       if (next.x < minX || next.x > maxX || next.y < minY || next.y > maxY || previous.has(key) || !walkable) return;
       previous.set(key, current);
@@ -232,7 +237,6 @@ function findSafeRoute(start, goal, blocked, boardWidth, boardHeight) {
     });
   }
 
-  const goalKey = coordinateKey(goal);
   if (!previous.has(goalKey)) {
     return null;
   }
@@ -247,10 +251,13 @@ function findSafeRoute(start, goal, blocked, boardWidth, boardHeight) {
 }
 
 function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
-  const path = [{ x: left - step, y: top - 2 * step }];
+  const start = { x: 3, y: -1 };
+  const path = [0, 1, 2, 3].map((x) => ({ x: left + x * step, y: top - step }));
   const blocked = new Set(targets.map((target) => coordinateKey({ x: target.weekIndex, y: target.weekday })));
+  const activeBody = [0, 1, 2, 3].map((x) => ({ x, y: -1 }));
   const remaining = targets.slice();
-  let current = { x: -1, y: -2 };
+  let current = start;
+  const routeMargin = targets.length;
 
   while (remaining.length) {
     let chosenIndex = -1;
@@ -262,7 +269,7 @@ function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
       const goal = { x: candidate.weekIndex, y: candidate.weekday };
       const goalKey = coordinateKey(goal);
       blocked.delete(goalKey);
-      const route = findSafeRoute(current, goal, blocked, boardWidth, boardHeight);
+      const route = findSafeRoute(current, goal, blocked, new Set(activeBody.map(coordinateKey)), boardWidth, boardHeight, routeMargin);
       blocked.add(goalKey);
 
       if (route) {
@@ -283,9 +290,14 @@ function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
     if (chosenRoute.some((point) => blocked.has(coordinateKey(point)))) {
       throw new Error("Snake route crossed a future green contribution cell");
     }
+    if (chosenRoute.slice(1).some((point) => activeBody.some((bodyPoint) => coordinateKey(bodyPoint) === coordinateKey(point)))) {
+      throw new Error("Snake route crossed its active body");
+    }
 
     chosenRoute.slice(1).forEach((point) => {
       path.push({ x: left + point.x * step, y: top + point.y * step });
+      activeBody.push({ ...point });
+      while (activeBody.length > 4) activeBody.shift();
     });
 
     target.pathIndex = path.length - 1;
@@ -295,45 +307,13 @@ function buildSnakePath(targets, left, top, step, boardWidth, boardHeight) {
   return path;
 }
 
-function compressPath(path) {
-  const waypointIndices = [0];
-
-  for (let index = 1; index < path.length - 1; index += 1) {
-    const previous = path[index - 1];
-    const point = path[index];
-    const next = path[index + 1];
-    const incoming = `${point.x - previous.x}:${point.y - previous.y}`;
-    const outgoing = `${next.x - point.x}:${next.y - point.y}`;
-
-    if (incoming !== outgoing) {
-      waypointIndices.push(index);
-    }
-  }
-
-  waypointIndices.push(path.length - 1);
-  return { waypointIndices, points: waypointIndices.map((index) => path[index]) };
-}
-
-function progressAtPathIndex(pathIndex, waypointIndices) {
-  for (let index = 1; index < waypointIndices.length; index += 1) {
-    const segmentStart = waypointIndices[index - 1];
-    const segmentEnd = waypointIndices[index];
-    if (pathIndex <= segmentEnd) {
-      const withinSegment = (pathIndex - segmentStart) / Math.max(1, segmentEnd - segmentStart);
-      return (index - 1 + withinSegment) / Math.max(1, waypointIndices.length - 1);
-    }
-  }
-
-  return 1;
-}
-
-function snakeMotion(pathData, lag) {
-  const values = pathData.waypointIndices.map((fullIndex) => {
-    const point = pathData.path[Math.max(0, fullIndex - lag)];
+function snakeMotion(path, lag) {
+  const values = path.slice(snakeStartIndex).map((_, index) => {
+    const point = path[Math.max(0, snakeStartIndex + index - lag)];
     return `${point.x} ${point.y}`;
   }).join(";");
 
-  return `<animateTransform attributeName="transform" type="translate" dur="${animationDuration}" repeatCount="indefinite" calcMode="linear" values="${values}" />`;
+  return `<animateTransform attributeName="transform" type="translate" dur="${animationDuration}" repeatCount="indefinite" calcMode="discrete" values="${values}" />`;
 }
 
 function renderProgressBar(targets, left, top, width, height, stroke) {
@@ -439,7 +419,6 @@ function renderSnakeSvg(weeks, dark) {
   });
 
   const path = buildSnakePath(targets, left, top, step, weeks.length, 7);
-  const pathData = { path, ...compressPath(path) };
   const targetPositions = new Map(targets.map((target) => [`${target.x}:${target.y}`, target]));
   path.forEach((point, pathIndex) => {
     const target = targetPositions.get(`${point.x}:${point.y}`);
@@ -450,7 +429,7 @@ function renderSnakeSvg(weeks, dark) {
 
   targets.forEach((target) => {
     target.eatIndex = target.passIndex ?? target.pathIndex;
-    target.eatProgress = progressAtPathIndex(target.eatIndex, pathData.waypointIndices);
+    target.eatProgress = (target.eatIndex - snakeStartIndex) / Math.max(1, path.length - snakeStartIndex - 1);
     target.fill = contributionColor(target.contributionCount, dark);
   });
 
@@ -473,11 +452,11 @@ function renderSnakeSvg(weeks, dark) {
   });
 
   const snake = [
-    { size: step + 4, offset: -2, color: snakeColors[0], lag: 0, opacity: 1 },
-    { size: step + 2, offset: -1, color: snakeColors[1], lag: 1, opacity: 0.98 },
-    { size: step + 2, offset: -1, color: snakeColors[2], lag: 2, opacity: 0.96 },
-    { size: step + 2, offset: -1, color: snakeColors[3], lag: 3, opacity: 0.94 },
-  ].map((segment) => `<rect x="${segment.offset}" y="${segment.offset}" width="${segment.size}" height="${segment.size}" rx="2" fill="${segment.color}" stroke="#2a173d" stroke-width="0.5" opacity="${segment.opacity}">${snakeMotion(pathData, segment.lag)}</rect>`).join("\n");
+    { size: step, offset: 0, color: snakeColors[0], lag: 0, opacity: 1 },
+    { size: step, offset: 0, color: snakeColors[1], lag: 1, opacity: 0.98 },
+    { size: step, offset: 0, color: snakeColors[2], lag: 2, opacity: 0.96 },
+    { size: step, offset: 0, color: snakeColors[3], lag: 3, opacity: 0.94 },
+  ].map((segment) => `<rect x="${segment.offset}" y="${segment.offset}" width="${segment.size}" height="${segment.size}" fill="${segment.color}" opacity="${segment.opacity}">${snakeMotion(path, segment.lag)}</rect>`).join("\n");
   const eatenTargets = targets.slice().sort((a, b) => a.eatIndex - b.eatIndex);
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
