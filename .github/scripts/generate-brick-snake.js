@@ -52,6 +52,58 @@ function requestGraphql(query, variables) {
   });
 }
 
+const contributionCalendarQuery = `
+  query($login: String!, $from: DateTime!, $to: DateTime!) {
+    user(login: $login) {
+      contributionsCollection(from: $from, to: $to) {
+        contributionCalendar {
+          weeks {
+            contributionDays {
+              date
+              contributionCount
+              weekday
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+function getContributionWindows(createdAt, endDate) {
+  const windows = [];
+  let from = new Date(createdAt);
+  from.setUTCHours(0, 0, 0, 0);
+
+  while (from < endDate) {
+    const to = new Date(from);
+    to.setUTCFullYear(to.getUTCFullYear() + 1);
+    if (to > endDate) to.setTime(endDate.getTime());
+
+    windows.push({ from: from.toISOString(), to: to.toISOString() });
+    from = to;
+  }
+
+  return windows;
+}
+
+async function getAllTimeContributionDays(createdAt) {
+  const windows = getContributionWindows(createdAt, new Date());
+  const collections = await Promise.all(
+    windows.map((window) => requestGraphql(contributionCalendarQuery, { login: username, ...window }))
+  );
+  const uniqueDays = new Map();
+
+  collections.forEach((collection) => {
+    const weeks = collection.user.contributionsCollection.contributionCalendar.weeks;
+    weeks.flatMap((week) => week.contributionDays).forEach((day) => {
+      uniqueDays.set(day.date, day);
+    });
+  });
+
+  return Array.from(uniqueDays.values()).sort((a, b) => a.date.localeCompare(b.date));
+}
+
 function contributionLevel(count) {
   if (count === 0) return 0;
   if (count < 5) return 1;
@@ -89,6 +141,7 @@ function formatRange(start, end) {
 
 function getStats(days) {
   const total = days.reduce((sum, day) => sum + day.contributionCount, 0);
+  const firstActiveDay = days.find((day) => day.contributionCount > 0);
   let longest = 0;
   let longestStart = null;
   let longestEnd = null;
@@ -125,7 +178,7 @@ function getStats(days) {
 
   return {
     total,
-    firstDate: days[0]?.date,
+    firstDate: firstActiveDay?.date,
     current,
     currentStart,
     currentEnd,
@@ -302,12 +355,6 @@ function renderProgressBar(targets, left, top, width, height, stroke) {
   return `${track}\n${segments}`;
 }
 
-function flattenCalendar(weeks) {
-  return weeks
-    .flatMap((week, weekIndex) => week.contributionDays.map((day) => ({ ...day, weekIndex })))
-    .sort((a, b) => a.date.localeCompare(b.date));
-}
-
 function renderStatsCard(stats) {
   const width = 990;
   const height = 280;
@@ -461,6 +508,7 @@ async function main() {
   const query = `
     query($login: String!) {
       user(login: $login) {
+        createdAt
         contributionsCollection {
           contributionCalendar {
             weeks {
@@ -478,8 +526,8 @@ async function main() {
 
   const data = await requestGraphql(query, { login: username });
   const weeks = data.user.contributionsCollection.contributionCalendar.weeks;
-  const days = flattenCalendar(weeks);
-  const stats = getStats(days);
+  const allTimeDays = await getAllTimeContributionDays(data.user.createdAt);
+  const stats = getStats(allTimeDays);
   const outputDir = process.env.OUTPUT_DIR || "dist";
 
   fs.mkdirSync(outputDir, { recursive: true });
