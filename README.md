@@ -185,11 +185,13 @@
 <summary>Contribution Activity</summary>
 <p align="center">
   <a href="https://github.com/Owen-kasule?tab=overview">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Owen-kasule&theme=github-compact&hide_border=true&area=true" alt="Owen Kasule's GitHub contribution activity graph" />
+    <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-stats-card.svg" alt="Owen Kasule's graphical GitHub contribution statistics" />
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/Owen-kasule?tab=overview">View my complete GitHub contribution activity</a>
+  <a href="https://github.com/Owen-kasule?tab=overview">
+    <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen Kasule's graphical GitHub contribution activity" />
+  </a>
 </p>
 </details>
 
