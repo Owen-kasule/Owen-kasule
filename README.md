@@ -172,6 +172,10 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Owen-kasule&theme=github_dark&utcOffset=3" alt="Owen's productive time" />
 </p>
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-stats-card.svg" alt="Owen's GitHub stats card" />
+</p>
+
 <h3 align="center">Contribution Snake</h3>
 <p align="center">
   <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen's contribution snake" />

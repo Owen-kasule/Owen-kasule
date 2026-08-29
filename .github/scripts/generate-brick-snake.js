@@ -51,20 +51,94 @@ function requestGraphql(query, variables) {
   });
 }
 
+function contributionLevel(count) {
+  if (count === 0) return 0;
+  if (count < 5) return 1;
+  if (count < 15) return 2;
+  if (count < 30) return 3;
+  return 4;
+}
+
 function contributionColor(count, dark) {
-  if (dark) {
-    if (count === 0) return "#f0f3f6";
-    if (count < 5) return "#9be9a8";
-    if (count < 15) return "#40c463";
-    if (count < 30) return "#30a14e";
-    return "#216e39";
+  if (count === 0) return dark ? "#f0f3f6" : "#ebedf0";
+
+  const colors = dark
+    ? ["#9be9a8", "#40c463", "#30a14e", "#216e39"]
+    : ["#9be9a8", "#40c463", "#30a14e", "#216e39"];
+
+  return colors[contributionLevel(count) - 1];
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function formatDay(date) {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
+function formatRange(start, end) {
+  if (!start || !end) return "No active streak";
+  return `${formatDay(start)} - ${formatDay(end)}`;
+}
+
+function getStats(days) {
+  const total = days.reduce((sum, day) => sum + day.contributionCount, 0);
+  let longest = 0;
+  let longestStart = null;
+  let longestEnd = null;
+  let run = 0;
+  let runStart = null;
+
+  days.forEach((day) => {
+    if (day.contributionCount > 0) {
+      if (run === 0) runStart = day.date;
+      run += 1;
+
+      if (run > longest) {
+        longest = run;
+        longestStart = runStart;
+        longestEnd = day.date;
+      }
+      return;
+    }
+
+    run = 0;
+    runStart = null;
+  });
+
+  let current = 0;
+  let currentStart = null;
+  let currentEnd = null;
+  for (let index = days.length - 1; index >= 0; index -= 1) {
+    const day = days[index];
+    if (day.contributionCount === 0) break;
+    current += 1;
+    currentStart = day.date;
+    if (!currentEnd) currentEnd = day.date;
   }
 
-  if (count === 0) return "#ebedf0";
-  if (count < 5) return "#9be9a8";
-  if (count < 15) return "#40c463";
-  if (count < 30) return "#30a14e";
-  return "#216e39";
+  return {
+    total,
+    firstDate: days[0]?.date,
+    current,
+    currentStart,
+    currentEnd,
+    longest,
+    longestStart,
+    longestEnd,
+  };
+}
+
+function getEatenFillAnimation(originalFill, emptyFill, index, totalTargets) {
+  const hold = Math.max(0, (index + 1) / (totalTargets + 7));
+  const turn = Math.min(0.995, hold + 0.002);
+
+  return `<animate attributeName="fill" dur="30s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${hold.toFixed(4)};${turn.toFixed(4)};1" values="${originalFill};${originalFill};${emptyFill};${emptyFill}" />`;
 }
 
 function animationValues(points, axis, segmentIndex) {
@@ -76,7 +150,55 @@ function animationValues(points, axis, segmentIndex) {
   return shifted.map((point) => point[axis]).join(";");
 }
 
-function renderSvg(weeks, dark) {
+function flattenCalendar(weeks) {
+  return weeks
+    .flatMap((week, weekIndex) => week.contributionDays.map((day) => ({ ...day, weekIndex })))
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+function renderStatsCard(stats) {
+  const width = 990;
+  const height = 250;
+  const bg = "#111111";
+  const text = "#ffffff";
+  const muted = "#a5a5a5";
+  const accent = "#C2FFC7";
+  const purple = "#CB9DF0";
+  const progress = Math.min(0.96, Math.max(0.16, stats.current / Math.max(1, stats.longest)));
+  const dash = `${(progress * 471).toFixed(1)} 471`;
+
+  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">${username} GitHub stats</title>
+  <desc id="desc">GitHub contribution totals, current streak, and longest streak for ${username}.</desc>
+  <style>
+    .number { font: 800 56px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
+    .label { font: 700 28px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
+    .muted { font: 700 24px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${muted}; }
+    .green { fill: ${accent}; }
+  </style>
+  <rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="8" fill="${bg}" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="330" y1="54" x2="330" y2="196" stroke="#d7d7d7" stroke-width="2" />
+  <line x1="660" y1="54" x2="660" y2="196" stroke="#d7d7d7" stroke-width="2" />
+
+  <text class="number" x="165" y="112" text-anchor="middle">${formatNumber(stats.total)}</text>
+  <text class="label" x="165" y="156" text-anchor="middle">Total Contributions</text>
+  <text class="muted" x="165" y="196" text-anchor="middle">${formatDay(stats.firstDate)} - Present</text>
+
+  <circle cx="495" cy="104" r="75" stroke="${accent}" stroke-width="10" opacity="0.25" />
+  <circle cx="495" cy="104" r="75" stroke="${accent}" stroke-width="10" stroke-linecap="round" transform="rotate(-90 495 104)" stroke-dasharray="${dash}" />
+  <path d="M495 32 C511 48 516 63 505 75 C496 86 476 81 480 63 C481 55 488 51 492 42 C495 51 506 58 500 67 C509 58 504 43 495 32Z" fill="${purple}" />
+  <text class="number" x="495" y="119" text-anchor="middle">${stats.current}</text>
+  <text class="label green" x="495" y="175" text-anchor="middle">Current Streak</text>
+  <text class="muted" x="495" y="214" text-anchor="middle">${formatRange(stats.currentStart, stats.currentEnd)}</text>
+
+  <text class="number" x="825" y="112" text-anchor="middle">${stats.longest}</text>
+  <text class="label" x="825" y="156" text-anchor="middle">Longest Streak</text>
+  <text class="muted" x="825" y="196" text-anchor="middle">${formatRange(stats.longestStart, stats.longestEnd)}</text>
+</svg>
+`;
+}
+
+function renderSnakeSvg(weeks, dark) {
   const cell = 11;
   const gap = 4;
   const step = cell + gap;
@@ -90,33 +212,52 @@ function renderSvg(weeks, dark) {
   const text = dark ? "#edf2f7" : "#1f2933";
   const muted = dark ? "#b8c2cc" : "#57606a";
   const stroke = dark ? "#263341" : "#d0d7de";
-  const paddle = dark ? "#9BE9A8" : "#30a14e";
+  const emptyFill = dark ? "#f0f3f6" : "#ebedf0";
+  const paddle = "#9BE9A8";
   const snakeColors = ["#CB9DF0", "#a855f7", "#8a00a8", "#7a007c", "#65006d", "#4c005c"];
   const cells = [];
-  const pathPoints = [];
+  const targets = [];
 
   weeks.forEach((week, weekIndex) => {
-    const orderedDays = weekIndex % 2 === 0
-      ? week.contributionDays
-      : [...week.contributionDays].reverse();
-
-    orderedDays.forEach((day) => {
-      pathPoints.push({
-        x: left + weekIndex * step,
-        y: top + day.weekday * step,
-      });
-    });
-
     week.contributionDays.forEach((day) => {
       const x = left + weekIndex * step;
       const y = top + day.weekday * step;
+      const fill = contributionColor(day.contributionCount, dark);
+      const target = { ...day, x, y, level: contributionLevel(day.contributionCount) };
+
+      if (day.contributionCount > 0) {
+        targets.push(target);
+      }
+    });
+  });
+
+  targets.sort((a, b) => {
+    if (a.level !== b.level) return a.level - b.level;
+    if (a.contributionCount !== b.contributionCount) return a.contributionCount - b.contributionCount;
+    if (a.weekday !== b.weekday) return a.weekday - b.weekday;
+    return b.weekIndex - a.weekIndex;
+  });
+
+  const targetKeys = new Map(targets.map((target, index) => [`${target.date}`, index]));
+
+  weeks.forEach((week, weekIndex) => {
+    week.contributionDays.forEach((day) => {
+      const x = left + weekIndex * step;
+      const y = top + day.weekday * step;
+      const fill = contributionColor(day.contributionCount, dark);
+      const targetIndex = targetKeys.get(day.date);
+      const eatAnimation = targetIndex === undefined
+        ? ""
+        : getEatenFillAnimation(fill, emptyFill, targetIndex, targets.length);
+
       cells.push(
-        `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${contributionColor(day.contributionCount, dark)}" stroke="${stroke}" stroke-width="0.45"><title>${day.date}: ${day.contributionCount} contributions</title></rect>`
+        `<rect x="${x}" y="${y}" width="${cell}" height="${cell}" rx="2" fill="${fill}" stroke="${stroke}" stroke-width="0.45">${eatAnimation}<title>${day.date}: ${day.contributionCount} contributions</title></rect>`
       );
     });
   });
 
-  const duration = "20s";
+  const pathPoints = targets.map((target) => ({ x: target.x, y: target.y }));
+  const duration = "30s";
   const snake = Array.from({ length: 6 }, (_, index) => {
     const opacity = (1 - index * 0.12).toFixed(2);
     const size = index === 0 ? cell + 3 : cell;
@@ -137,7 +278,7 @@ function renderSvg(weeks, dark) {
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${username} brick-game contribution snake</title>
-  <desc id="desc">A blocky arcade-style snake moves cell by cell across ${username}'s GitHub contribution calendar.</desc>
+  <desc id="desc">A blocky arcade-style snake eats the lightest green contribution bricks first, leaving a clean white path until the board is cleared.</desc>
   <style>
     .title { font: 700 28px ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: ${text}; }
     .label { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: ${muted}; letter-spacing: 1px; }
@@ -146,7 +287,7 @@ function renderSvg(weeks, dark) {
   </style>
   <rect width="100%" height="100%" rx="12" fill="${bg}" />
   <text class="title" x="${width / 2}" y="38" text-anchor="middle">Contribution Snake</text>
-  <text class="label" x="${width / 2}" y="61" text-anchor="middle">BRICK MODE / ${username}</text>
+  <text class="label" x="${width / 2}" y="61" text-anchor="middle">EATS LIGHT GREEN FIRST / CLEARS TO WHITE</text>
   <g>${cells.join("\n")}</g>
   ${snake}
   <rect y="${footerTop}" width="118" height="12" rx="2" fill="${paddle}">
@@ -184,12 +325,14 @@ async function main() {
 
   const data = await requestGraphql(query, { login: username });
   const weeks = data.user.contributionsCollection.contributionCalendar.weeks;
-
+  const days = flattenCalendar(weeks);
+  const stats = getStats(days);
   const outputDir = process.env.OUTPUT_DIR || "dist";
 
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(`${outputDir}/github-contribution-grid-snake.svg`, renderSvg(weeks, false));
-  fs.writeFileSync(`${outputDir}/github-contribution-grid-snake-dark.svg`, renderSvg(weeks, true));
+  fs.writeFileSync(`${outputDir}/github-contribution-grid-snake.svg`, renderSnakeSvg(weeks, false));
+  fs.writeFileSync(`${outputDir}/github-contribution-grid-snake-dark.svg`, renderSnakeSvg(weeks, true));
+  fs.writeFileSync(`${outputDir}/github-stats-card.svg`, renderStatsCard(stats));
 }
 
 main().catch((error) => {
