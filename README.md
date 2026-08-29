@@ -1,63 +1,183 @@
-# 💼 About Me:
-Hi, I’m **Owen Kasule Muhereza**, a **Software Developer** currently studying **Software Development** at **BYU-Idaho**. I hold a **Diploma in Information Technology** from **ISBAT University** in **Kampala**, Uganda. I specialize in creating efficient solutions across a variety of technology areas, including **web development**, **mobile app development**, **cloud services**, and **database management**. I’m passionate about solving real-world problems and continuously expanding my skills to work with the latest technologies.
+<h1 align="center">
+  Hi <img src="https://user-images.githubusercontent.com/44104676/173990923-48b66056-0bff-472a-b5bf-faab4146e950.gif" height="40" alt="waving hand" />
+  I'm Owen Kasule Muhereza
+</h1>
 
-🔭 **Currently working on**: Enhancing a few **website templetes** and collaborating on web development projects that have **real-world impact**.  
-👯 **Looking to collaborate on**: Projects where **technology** can solve **global challenges**, especially in **web development**, **software optimization**, and **cloud technologies**.  
-🌱 **Currently learning**: **AWS cloud technologies** and **data analysis** with **Python** to improve my backend and data-handling capabilities.  
-💬 **Ask me about**: **Full-stack development**, **cloud services (AWS)**, **best practices in database management**, and **coding principles**.  
-⚡ **Fun fact**: I’m so committed to **efficient coding** that I even manage to debug my code while watching an Arsenal match—yes, I can multitask like a pro!
+<h3 align="center">Software Engineer | Full-Stack Developer | Cloud & Data Enthusiast</h3>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/Focus-Software%20Engineering-C2FFC7?style=flat&labelColor=000000" alt="Software Engineering" />
+  <img src="https://img.shields.io/badge/Focus-Full--Stack%20Development-CB9DF0?style=flat&labelColor=000000" alt="Full-Stack Development" />
+  <img src="https://img.shields.io/badge/Focus-Cloud%20%26%20Databases-C2FFC7?style=flat&labelColor=000000" alt="Cloud and Databases" />
+</p>
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/owen-muhereza-kasule-teachrooot)  
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white)](https://github.com/owen-kasule)  
-[![Twitter](https://img.shields.io/badge/Twitter-%23000000.svg?logo=twitter&logoColor=white)](https://twitter.com/@KingOWEN99)
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Owen-kasule&label=Profile%20Views&color=000000&style=flat&labelColor=C2FFC7" alt="Profile views" />
+</p>
 
----
+<details open>
+<summary>Connect With Me</summary>
+<p align="center">
+  <a href="https://www.linkedin.com/in/owen-muhereza/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/Owen-kasule">
+    <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://transparent-spark-portfolio.vercel.app">
+    <img src="https://img.shields.io/badge/Portfolio-C2FFC7?style=for-the-badge&logo=vercel&logoColor=000000" alt="Portfolio" />
+  </a>
+  <a href="https://twitter.com/KingOWEN99">
+    <img src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter" />
+  </a>
+</p>
+</details>
 
-# 💻 Tech Stack:
-I work with a broad set of tools and technologies to build **dynamic and scalable applications**:
+<details open>
+<summary>Developer Quote</summary>
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=1700&color=C2FFC7&center=true&vCenter=true&random=false&width=900&lines=I+build+software+that+solves+real+problems.;Clean+code.+Useful+products.+Reliable+systems.;Always+learning%2C+always+shipping." alt="Developer typing quote" />
+</p>
+</details>
 
-- **Languages**: ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-- **Frameworks & Libraries**: ![Vue.js](https://img.shields.io/badge/vue.js-%234FC08D.svg?style=for-the-badge&logo=vue.js&logoColor=white) ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white) ![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-- **Cloud**: ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-- **Databases**: ![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-- **Version Control**: ![GitHub](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+<details open>
+<summary>About Me</summary>
+<ul>
+  <li>🔭 I build full-stack web applications, backend services, APIs, and database-driven products.</li>
+  <li>🎓 I am studying Software Development at BYU-Idaho and hold a Diploma in Information Technology from ISBAT University.</li>
+  <li>💼 My experience includes software development, database work, debugging, cloud deployment, and technical support.</li>
+  <li>🌱 I am currently growing deeper in AWS, Python data analysis, backend architecture, and product-focused engineering.</li>
+  <li>👯 I enjoy collaborating on products where software improves real workflows for people and organizations.</li>
+  <li>💬 Ask me about full-stack development, APIs, databases, AWS, Linux, Git, and practical problem solving.</li>
+  <li>⚡ Fun fact: I can debug code and still keep an eye on an Arsenal match.</li>
+</ul>
+</details>
 
----
+<details open>
+<summary>Skills & Tools</summary>
 
-## 🚀 Recent Projects:
+<h3 align="center">Languages</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="C Sharp" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="42" height="42" />
+</p>
 
-Here are some of my recent projects, demonstrating my ability to build responsive and interactive websites using **HTML**, **CSS**, and **JavaScript**:
+<h3 align="center">Frameworks & Runtime</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" alt="Next.js" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg" alt="Vue.js" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg" alt="Laravel" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="42" height="42" />
+  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="42" height="42" />
+</p>
 
-### **1. [Tech Startup - Company Portfolio Website](https://owen-kasule.github.io/wdd231/individual-project/index.html)**  
-A **responsive portfolio website** designed for a **tech startup**. Built with **HTML**, **CSS**, and **JavaScript**, this website serves as a platform to showcase the company’s services and projects. It highlights my ability to create professional, user-friendly websites tailored for business needs.
+<h3 align="center">Cloud, Databases & Dev Tools</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" width="48" height="48" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/supabase/supabase-original.svg" alt="Supabase" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" width="42" height="42" />
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original.svg" alt="Vercel" width="42" height="42" />
+</p>
+</details>
 
-### **2. [NGO - Project Website](https://owen-kasule.github.io/project/index.html)**  
-Created for a non-profit, this site highlights the organization’s mission and services. Built with **HTML**, **CSS**, and **JavaScript**, the site offers a user-friendly interface for visitors to explore the NGO's work and contribute.
+<details open>
+<summary>Featured Projects</summary>
+<table align="center">
+  <tr>
+    <td width="50%">
+      <h3 align="center">TransparentSpark</h3>
+      <p align="center">A TypeScript portfolio experience deployed on Vercel.</p>
+      <p align="center">
+        <a href="https://github.com/Owen-kasule/TransparentSpark">
+          <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white" alt="TransparentSpark code" />
+        </a>
+        <a href="https://transparent-spark-portfolio.vercel.app">
+          <img src="https://img.shields.io/badge/Live-C2FFC7?style=for-the-badge&logo=vercel&logoColor=000000" alt="TransparentSpark live site" />
+        </a>
+      </p>
+    </td>
+    <td width="50%">
+      <h3 align="center">Handcrafted Haven</h3>
+      <p align="center">A collaborative full-stack marketplace built with Next.js, Node.js, and Vercel.</p>
+      <p align="center">
+        <a href="https://github.com/Owen-kasule/wdd430-group05-handcrafted-haven">
+          <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white" alt="Handcrafted Haven code" />
+        </a>
+        <a href="https://wdd430-group05-handcrafted-haven-co.vercel.app/">
+          <img src="https://img.shields.io/badge/Live-CB9DF0?style=for-the-badge&logo=vercel&logoColor=000000" alt="Handcrafted Haven live site" />
+        </a>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3 align="center">Wow Shoppers Lite</h3>
+      <p align="center">A JavaScript ecommerce MVP for a single supermarket workflow.</p>
+      <p align="center">
+        <a href="https://github.com/Owen-kasule/wow-shoppers-lite">
+          <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white" alt="Wow Shoppers Lite code" />
+        </a>
+      </p>
+    </td>
+    <td width="50%">
+      <h3 align="center">SoundHire Data Analysis</h3>
+      <p align="center">Python and Pandas analysis for booking data in a sound equipment rental business.</p>
+      <p align="center">
+        <a href="https://github.com/Owen-kasule/SoundHire-Data-Analysis">
+          <img src="https://img.shields.io/badge/Code-000000?style=for-the-badge&logo=github&logoColor=white" alt="SoundHire Data Analysis code" />
+        </a>
+      </p>
+    </td>
+  </tr>
+</table>
+</details>
 
-### **3. [Water Rafting Company - WWR Project](https://owen-kasule.github.io/wdd130/wwr/index.html)**  
-An **interactive web page** for a water rafting company, designed using **HTML**, **CSS**, and **JavaScript**. This project features a **clean, responsive UI** for users to view activities, schedules, and booking information.
+<details open>
+<summary>Engineering Snapshot</summary>
+<p align="center">
+  <img src="https://img.shields.io/badge/Builds-Web%20Apps-C2FFC7?style=for-the-badge&labelColor=000000" alt="Builds web apps" />
+  <img src="https://img.shields.io/badge/Works%20With-APIs%20%26%20Databases-CB9DF0?style=for-the-badge&labelColor=000000" alt="APIs and databases" />
+  <img src="https://img.shields.io/badge/Deploys-Cloud%20Products-C2FFC7?style=for-the-badge&labelColor=000000" alt="Cloud products" />
+  <img src="https://img.shields.io/badge/Learns-Continuously-CB9DF0?style=for-the-badge&labelColor=000000" alt="Continuous learning" />
+</p>
+</details>
 
-### **4. [LDS Temple Gallery - Filtered Temples](https://owen-kasule.github.io/wdd131/filtered-temples.html)**  
-Developed with **HTML**, **CSS**, and **JavaScript**, this **temple gallery** showcases a filtered list of LDS temples. It demonstrates my ability to create dynamic content and interactive features on the web.
+<details open>
+<summary>GitHub Contribution Chart</summary>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Owen-kasule&theme=github_dark" alt="Owen's GitHub contribution summary" />
+</p>
+</details>
 
-### **5. [Sustainable NGO - SDS Africa Website](https://sdsafrica.org/)**  
-Built for a client, this **WordPress-based** website highlights an NGO dedicated to **sustainable development**. I customized the theme to create a clean, user-friendly interface while integrating essential features such as donation forms and event tracking.
+<details open>
+<summary>GitHub Stats</summary>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Owen-kasule&theme=github_dark" alt="Owen's repositories per language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Owen-kasule&theme=github_dark" alt="Owen's most committed languages" />
+</p>
 
----
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Owen-kasule&theme=github_dark" alt="Owen's GitHub stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Owen-kasule&theme=github_dark&utcOffset=3" alt="Owen's productive time" />
+</p>
 
-## 📊 GitHub Stats:
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule&theme=dark&hide_border=false)<br/>
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+<h3 align="center">Contribution Snake</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen's contribution snake" />
+</p>
+</details>
 
----
-
-## 💰 You Can Support My Work
-If you believe in my journey as a developer and would like to support my work, please consider donating via PayPal. Your support helps me further grow my skills and build more impactful projects.
-
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/2owen4)
-
----
+<p align="center">
+  <i>Thanks for visiting. I am always building, learning, and looking for better ways to turn ideas into useful software.</i>
+</p>
