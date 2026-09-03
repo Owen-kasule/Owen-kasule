@@ -83,4 +83,18 @@
 </p>
 </details>
 
+<details open>
+<summary>Contribution History</summary>
+<p align="center">
+  <img width="100%" src="./metrics.contributions.svg" alt="Owen Kasule full GitHub contribution history" />
+</p>
+</details>
+
+<details open>
+<summary>Recent GitHub Activity</summary>
+<p align="center">
+  <img width="100%" src="./metrics.activity.svg" alt="Owen Kasule recent GitHub activity" />
+</p>
+</details>
+
 <p align="center"><sub>Building useful software with clarity, reliability, and purpose.</sub></p>
