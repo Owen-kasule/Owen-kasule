@@ -67,7 +67,6 @@
 <details open>
 <summary>GitHub Stats</summary>
 <p align="center">
-  <img width="49%" src="https://github-stats-extended.vercel.app/api?username=Owen-kasule&show_icons=true&include_all_commits=true&count_private=false&hide=contribs&show=prs_merged,prs_merged_percentage&rank_icon=github&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&cache_seconds=21600" alt="Owen Kasule GitHub stats" />
   <img width="49%" src="https://github-stats-extended.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&langs_count=8&size_weight=0.5&count_weight=0.5&theme=dark&title_color=60A5FA&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&cache_seconds=21600" alt="Owen Kasule top programming languages" />
 </p>
 <p align="center">
