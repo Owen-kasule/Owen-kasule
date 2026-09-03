@@ -6,13 +6,13 @@
 <h3 align="center">Software Engineer | Full-Stack Developer | Cloud & Data Enthusiast</h3>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Focus-Software%20Engineering-1D4ED8?style=flat&labelColor=10162A&color=1D4ED8" alt="Software Engineering" />
-  <img src="https://img.shields.io/badge/Focus-Full--Stack%20Development-60A5FA?style=flat&labelColor=10162A&color=60A5FA" alt="Full-Stack Development" />
-  <img src="https://img.shields.io/badge/Focus-Cloud%20%26%20Data-1D4ED8?style=flat&labelColor=10162A&color=1D4ED8" alt="Cloud and Data" />
+  <img src="https://img.shields.io/badge/Focus-Software%20Engineering-1D4ED8?style=flat&labelColor=10162A" alt="Software Engineering" />
+  <img src="https://img.shields.io/badge/Focus-Full--Stack%20Development-60A5FA?style=flat&labelColor=10162A" alt="Full-Stack Development" />
+  <img src="https://img.shields.io/badge/Focus-Cloud%20%26%20Data-1D4ED8?style=flat&labelColor=10162A" alt="Cloud and Data" />
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Owen-kasule&label=Profile%20Views&color=1D4ED8&style=flat&labelColor=10162A" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/Owen-kasule?style=flat&label=GitHub%20Followers&labelColor=10162A&color=1D4ED8" alt="GitHub followers" />
 </p>
 
 <details open>
@@ -36,7 +36,7 @@
 <details open>
 <summary>Developer Quote</summary>
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3200&pause=1800&color=60A5FA&center=true&vCenter=true&random=false&width=900&lines=The+best+way+to+predict+the+future+is+to+invent+it.;Alan+Kay" alt="Alan Kay developer quote" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/developer-quote.svg" alt="Developer quote" />
 </p>
 </details>
 
@@ -94,19 +94,8 @@
 <details open>
 <summary>Top Repositories</summary>
 <p align="center">
-  <a href="https://github.com/Owen-kasule/TransparentSpark">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Owen-kasule&repo=TransparentSpark&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="TransparentSpark repository" />
-  </a>
-  <a href="https://github.com/Owen-kasule/wdd430-group05-handcrafted-haven">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Owen-kasule&repo=wdd430-group05-handcrafted-haven&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="Handcrafted Haven repository" />
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/Owen-kasule/wow-shoppers-lite">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Owen-kasule&repo=wow-shoppers-lite&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="Wow Shoppers Lite repository" />
-  </a>
-  <a href="https://github.com/Owen-kasule/SoundHire-Data-Analysis">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=Owen-kasule&repo=SoundHire-Data-Analysis&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="SoundHire Data Analysis repository" />
+  <a href="https://github.com/Owen-kasule?tab=repositories">
+    <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/top-repositories.svg" alt="Owen Kasule top repositories" />
   </a>
 </p>
 </details>
@@ -114,7 +103,7 @@
 <details open>
 <summary>GitHub Contribution Chart</summary>
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Owen-kasule&bg_color=06070C&color=F8FAFC&line=1D4ED8&point=60A5FA&area=true&area_color=10162A&hide_border=false&border_color=1D4ED8&custom_title=Contribution%20Graph" alt="Owen Kasule contribution graph" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/contribution-graph.svg" alt="Owen Kasule contribution graph" />
 </p>
 </details>
 
@@ -123,39 +112,37 @@
 
 <h3 align="center">GitHub Readme Stats Dashboard</h3>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Owen-kasule&show_icons=true&include_all_commits=true&count_private=false&show=reviews,prs_merged,prs_merged_percentage&rank_icon=github&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="Owen Kasule GitHub stats dashboard" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-summary.svg" alt="Owen Kasule GitHub stats dashboard" />
 </p>
 
 <h3 align="center">Top Programming Languages</h3>
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&langs_count=10&size_weight=0.5&count_weight=0.5&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&border_color=1D4ED8" alt="Owen Kasule top programming languages" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/top-languages.svg" alt="Owen Kasule top programming languages" />
 </p>
 
 <h3 align="center">GitHub Streak</h3>
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Owen-kasule&background=10162A&border=1D4ED8&stroke=60A5FA&ring=1D4ED8&fire=60A5FA&currStreakNum=F8FAFC&sideNums=F8FAFC&currStreakLabel=60A5FA&sideLabels=60A5FA&dates=F8FAFC" alt="Owen Kasule GitHub streak" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-streak.svg" alt="Owen Kasule GitHub streak" />
 </p>
 
 <h3 align="center">GitHub Trophies</h3>
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Owen-kasule&theme=darkhub&no-frame=false&no-bg=true&margin-w=8&column=-1&title=Commits,Repositories,PullRequest,Issues,Stars,Followers" alt="Owen Kasule GitHub trophies" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-trophies.svg" alt="Owen Kasule GitHub trophies" />
 </p>
 
 <h3 align="center">Contribution Snake</h3>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen Kasule contribution snake" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen Kasule contribution snake" />
 </p>
 </details>
 
 <details open>
 <summary>WakaTime Coding Metrics</summary>
 <p align="center">
-  <a href="https://wakatime.com/@Owen-kasule">
-    <img src="https://github-readme-stats.vercel.app/api/wakatime?username=Owen-kasule&layout=compact&langs_count=8&display_format=time&bg_color=10162A&title_color=60A5FA&text_color=F8FAFC&icon_color=1D4ED8&border_color=1D4ED8" alt="Owen Kasule WakaTime coding metrics" />
-  </a>
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/wakatime.svg" alt="Owen Kasule WakaTime coding metrics" />
 </p>
 <p align="center">
-  <img src="https://img.shields.io/badge/WakaTime-Live%20Coding%20Metrics-1D4ED8?style=for-the-badge&logo=wakatime&logoColor=F8FAFC&labelColor=10162A" alt="WakaTime coding metrics" />
+  <img src="https://img.shields.io/badge/WakaTime-7%20Day%20Coding%20Metrics-1D4ED8?style=for-the-badge&logo=wakatime&logoColor=F8FAFC&labelColor=10162A" alt="WakaTime coding metrics" />
 </p>
 </details>
 
@@ -170,10 +157,9 @@
 
 <div align="center">
   <br />
-  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:06070C,25:10162A,55:1D4ED8,80:60A5FA,100:F8FAFC&height=120&section=footer&text=Thanks%20for%20visiting!&fontColor=F8FAFC&fontSize=28&fontAlignY=72" alt="Thanks for visiting" />
+  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/footer-wave.svg" alt="Thanks for visiting" />
 </div>
 
 <p align="center">
-  <strong>“The best way to predict the future is to invent it.”</strong><br />
-  <sub>Alan Kay</sub>
+  <strong>“The best way to predict the future is to invent it.”</strong>
 </p>
