@@ -15,21 +15,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+
     steps:
       - name: Generate and publish live blue contribution snake
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          set -e
-          rm -rf snake-build snake-output
+          set -euo pipefail
+
+          rm -rf snake-source snake-build snake-output
+
+          git clone --depth 1 --branch main "https://github.com/${GITHUB_REPOSITORY}.git" snake-source
           mkdir -p snake-build
 
-          npx --yes generate-snake-animation@3 \
-            --github_user=Owen-kasule \
-            --output='snake-build/github-contribution-grid-snake.svg?color_snake=#1D4ED8&color_dots=#06070C,#10162A,#1D4ED8,#3B82F6,#60A5FA' \
-            --output='snake-build/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#60A5FA&color_dots=#06070C,#10162A,#1D4ED8,#3B82F6,#60A5FA'
+          OUTPUT_DIR="${GITHUB_WORKSPACE}/snake-build" \
+            node snake-source/.github/scripts/generate-blue-snake.js
 
           git clone --branch output --single-branch "https://github.com/${GITHUB_REPOSITORY}.git" snake-output
+
           cp snake-build/github-contribution-grid-snake.svg snake-output/
           cp snake-build/github-contribution-grid-snake-dark.svg snake-output/
 
@@ -43,6 +46,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: refresh blue contribution snake"
+          git commit -m "chore: refresh improved blue contribution snake"
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git push origin output
