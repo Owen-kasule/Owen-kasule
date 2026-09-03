@@ -174,6 +174,28 @@
 
 </details>
 
+<details open>
+<summary>GitHub Stats</summary>
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Owen-kasule&theme=github_dark" alt="Owen's repositories per language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Owen-kasule&theme=github_dark" alt="Owen's most committed languages" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Owen-kasule&theme=github_dark" alt="Owen's GitHub stats" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Owen-kasule&theme=github_dark&utcOffset=3" alt="Owen's productive time" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-stats-card.svg" alt="Owen's GitHub stats card" />
+</p>
+
+<h3 align="center">Contribution Snake</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen's contribution snake" />
+</p>
+</details>
+
 <p align="center">
   <i>Thanks for visiting. I am always building, learning, and looking for better ways to turn ideas into useful software.</i>
 </p>
