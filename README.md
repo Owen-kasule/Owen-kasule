@@ -201,29 +201,29 @@
 
 ### Overall Stats & Top Languages
 <p align="center">
-  <!-- Overall GitHub stats and top languages (live) -->
-  <img src="https://github-readme-stats.vercel.app/api?username=Owen-kasule&show_icons=true&theme=github_dark" height="150" alt="Overall GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&theme=github_dark" height="150" alt="Top languages" />
+  <!-- Overall GitHub stats and top languages (black background, white text, blue accents) -->
+  <img src="https://github-readme-stats.vercel.app/api?username=Owen-kasule&show_icons=true&theme=dark&title_color=0A66C2&icon_color=0A66C2&text_color=ffffff&bg_color=000000" height="150" alt="Overall GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&theme=dark&title_color=0A66C2&text_color=ffffff&bg_color=000000&icon_color=0A66C2" height="150" alt="Top languages" />
 </p>
 
 ### Tech Stack Badges
 <p align="left">
-  <!-- Replace, add, or remove badges as you like -->
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
+  <!-- Badges styled with black label, blue fill (#0A66C2), white text where appropriate -->
+  <img src="https://img.shields.io/badge/JavaScript-0A66C2?style=for-the-badge&logo=javascript&logoColor=black&labelColor=000000" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/TypeScript-0A66C2?style=for-the-badge&logo=typescript&logoColor=white&labelColor=000000" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Node.js-0A66C2?style=for-the-badge&logo=node.js&logoColor=white&labelColor=000000" alt="Node.js" />
+  <img src="https://img.shields.io/badge/React-0A66C2?style=for-the-badge&logo=react&logoColor=white&labelColor=000000" alt="React" />
+  <img src="https://img.shields.io/badge/Next.js-0A66C2?style=for-the-badge&logo=next.js&logoColor=white&labelColor=000000" alt="Next.js" />
+  <img src="https://img.shields.io/badge/AWS-0A66C2?style=for-the-badge&logo=amazon-aws&logoColor=white&labelColor=000000" alt="AWS" />
+  <img src="https://img.shields.io/badge/PostgreSQL-0A66C2?style=for-the-badge&logo=postgresql&logoColor=white&labelColor=000000" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/Docker-0A66C2?style=for-the-badge&logo=docker&logoColor=white&labelColor=000000" alt="Docker" />
 </p>
 
 ### WakaTime Coding Hours
 <p align="center">
   <!-- WakaTime: change the @username path if your WakaTime account uses a different name -->
   <a href="https://wakatime.com/@Owen-kasule">
-    <img src="https://wakatime.com/share/@Owen-kasule.svg" alt="WakaTime coding stats" />
+    <img src="https://wakatime.com/share/@Owen-kasule.svg" alt="WakaTime coding stats" style="background:#000000;border-radius:6px;padding:6px" />
   </a>
 </p>
 
