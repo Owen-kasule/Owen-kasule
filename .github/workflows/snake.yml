@@ -1,28 +1,32 @@
 name: Generate Snake
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Generate blue contribution snake from live GitHub data
+        uses: Platane/snk@v3
         with:
-          node-version: 20
-
-      - name: Generate brick-game contribution snake
-        run: node .github/scripts/generate-brick-snake.js
+          github_user_name: Owen-kasule
+          outputs: |
+            dist/github-contribution-grid-snake.svg?color_snake=#1D4ED8&color_dots=#06070C,#10162A,#1D4ED8,#3B82F6,#60A5FA
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#60A5FA&color_dots=#06070C,#10162A,#1D4ED8,#3B82F6,#60A5FA
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Publish snake to output branch
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
