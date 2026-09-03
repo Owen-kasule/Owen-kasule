@@ -1,6 +1,4 @@
-<h1 align="center">
-  Hi 👋 I'm Owen Kasule Muhereza
-</h1>
+<h1 align="center">Hi <img src="https://user-images.githubusercontent.com/44104676/173990923-48b66056-0bff-472a-b5bf-faab4146e950.gif" height="40"> I'm Owen Kasule Muhereza</h1>
 
 <h3 align="center">Software Engineer | Full-Stack Developer | Cloud & Data Enthusiast</h3>
 
@@ -11,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/followers/Owen-kasule?style=flat&label=GitHub%20Followers&labelColor=10162A&color=1D4ED8" alt="GitHub followers" />
+  <img src="https://komarev.com/ghpvc/?username=Owen-kasule&label=Profile%20Views&color=1D4ED8&style=flat&labelColor=10162A" alt="Profile views" />
 </p>
 
 <details open>
@@ -27,7 +25,7 @@
 <details open>
 <summary>Developer Quote</summary>
 <p align="center">
-  <img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/developer-quote.svg" alt="Developer quote" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=2000&color=60A5FA&center=true&vCenter=true&random=false&width=850&lines=The+best+way+to+predict+the+future+is+to+invent+it.;Alan+Kay" alt="Developer Quote" />
 </p>
 </details>
 
@@ -45,6 +43,7 @@
 
 <details open>
 <summary>Skills & Tools</summary>
+
 <h3 align="center">Languages</h3>
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-1D4ED8?style=for-the-badge&logo=javascript&logoColor=F8FAFC&labelColor=10162A" alt="JavaScript" />
@@ -55,6 +54,7 @@
   <img src="https://img.shields.io/badge/HTML5-1D4ED8?style=for-the-badge&logo=html5&logoColor=F8FAFC&labelColor=10162A" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1D4ED8?style=for-the-badge&logo=css3&logoColor=F8FAFC&labelColor=10162A" alt="CSS3" />
 </p>
+
 <h3 align="center">Frameworks & Runtime</h3>
 <p align="center">
   <img src="https://img.shields.io/badge/React-60A5FA?style=for-the-badge&logo=react&logoColor=06070C&labelColor=F8FAFC" alt="React" />
@@ -64,6 +64,7 @@
   <img src="https://img.shields.io/badge/Node.js-60A5FA?style=for-the-badge&logo=nodedotjs&logoColor=06070C&labelColor=F8FAFC" alt="Node.js" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-60A5FA?style=for-the-badge&logo=tailwindcss&logoColor=06070C&labelColor=F8FAFC" alt="Tailwind CSS" />
 </p>
+
 <h3 align="center">Cloud, Databases & Dev Tools</h3>
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-1D4ED8?style=for-the-badge&logo=amazonwebservices&logoColor=F8FAFC&labelColor=10162A" alt="AWS" />
@@ -81,47 +82,85 @@
 
 <details open>
 <summary>Top Repositories</summary>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/top-repositories.svg" alt="Owen Kasule top repositories" /></p>
 <p align="center">
-  <a href="https://github.com/Owen-kasule/TransparentSpark">TransparentSpark</a> •
-  <a href="https://github.com/Owen-kasule/wdd430-group05-handcrafted-haven">Handcrafted Haven</a> •
-  <a href="https://github.com/Owen-kasule/wow-shoppers-lite">Wow Shoppers Lite</a> •
-  <a href="https://github.com/Owen-kasule/SoundHire-Data-Analysis">SoundHire Data Analysis</a>
+  <a href="https://github.com/Owen-kasule/TransparentSpark">
+    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=Owen-kasule&repo=TransparentSpark&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="TransparentSpark repository" />
+  </a>
+  <a href="https://github.com/Owen-kasule/wdd430-group05-handcrafted-haven">
+    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=Owen-kasule&repo=wdd430-group05-handcrafted-haven&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Handcrafted Haven repository" />
+  </a>
+  <a href="https://github.com/Owen-kasule/wow-shoppers-lite">
+    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=Owen-kasule&repo=wow-shoppers-lite&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Wow Shoppers Lite repository" />
+  </a>
+  <a href="https://github.com/Owen-kasule/SoundHire-Data-Analysis">
+    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=Owen-kasule&repo=SoundHire-Data-Analysis&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="SoundHire Data Analysis repository" />
+  </a>
 </p>
 </details>
 
 <details open>
 <summary>GitHub Contribution Chart</summary>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/contribution-activity.svg" alt="Owen Kasule contribution activity" /></p>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen Kasule contribution snake" /></p>
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Owen-kasule&theme=github-compact&area=true&hide_border=false&custom_title=Contribution%20Graph&bg_color=06070C&color=F8FAFC&line=1D4ED8&point=60A5FA&area_color=10162A&border_color=1D4ED8" alt="Owen Kasule contribution graph" />
+</p>
 </details>
 
 <details open>
 <summary>GitHub Stats</summary>
-<h3 align="center">GitHub Readme Stats Dashboard</h3>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/github-summary.svg" alt="Owen Kasule GitHub stats dashboard" /></p>
+
+<p align="center">
+  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=Owen-kasule&show_icons=true&include_all_commits=true&count_private=false&show=reviews,prs_merged,prs_merged_percentage&rank_icon=github&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Owen Kasule GitHub stats" />
+</p>
+
 <h3 align="center">Top Programming Languages</h3>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/top-languages.svg" alt="Owen Kasule top programming languages" /></p>
+<p align="center">
+  <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&langs_count=10&size_weight=0.5&count_weight=0.5&theme=dark&title_color=60A5FA&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Owen Kasule top programming languages" />
+</p>
+
 <h3 align="center">GitHub Streak</h3>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/github-streak.svg" alt="Owen Kasule GitHub streak" /></p>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=Owen-kasule&theme=dark&background=10162A&border=1D4ED8&stroke=60A5FA&ring=1D4ED8&fire=60A5FA&currStreakNum=F8FAFC&sideNums=F8FAFC&currStreakLabel=60A5FA&sideLabels=60A5FA&dates=F8FAFC" alt="Owen Kasule GitHub streak" />
+</p>
+
 <h3 align="center">GitHub Trophies</h3>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/github-trophies.svg" alt="Owen Kasule GitHub milestones" /></p>
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Owen-kasule&theme=darkhub&column=-1&margin-w=8&no-bg=true&no-frame=false" alt="Owen Kasule GitHub trophies" />
+</p>
+
+<h3 align="center">Contribution Snake</h3>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen Kasule contribution snake" />
+</p>
 </details>
 
 <details open>
 <summary>WakaTime Coding Metrics</summary>
-<p align="center"><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/wakatime.svg" alt="Owen Kasule WakaTime coding metrics" /></p>
-<p align="center"><img src="https://img.shields.io/badge/WakaTime-Integration%20Ready-1D4ED8?style=for-the-badge&logo=wakatime&logoColor=F8FAFC&labelColor=10162A" alt="WakaTime integration" /></p>
+<p align="center">
+  <a href="https://wakatime.com/@Owen-kasule">
+    <img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/wakatime?username=Owen-kasule&layout=compact&langs_count=8&display_format=time&theme=dark&title_color=60A5FA&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Owen Kasule WakaTime coding metrics" />
+  </a>
+</p>
 </details>
 
 <details open>
 <summary>Recent Platform Activity</summary>
-<ul>
-  <li>✅ Merged PR #3: fixed broken profile widgets and moved critical profile visuals into this repository.</li>
-  <li>✅ Merged PR #2: restyled the profile in an itsKayWat-inspired developer dashboard format.</li>
-</ul>
+<p>Recent public pull-request and issue activity is refreshed automatically from GitHub.</p>
+
+<!--RECENT_ACTIVITY:start-->
+- ✅ Merged [PR #3: Fix broken profile widgets with self-hosted GitHub SVGs](https://github.com/Owen-kasule/Owen-kasule/pull/3) in [Owen-kasule/Owen-kasule](https://github.com/Owen-kasule/Owen-kasule)
+- ✅ Merged [PR #2: Restyle profile in itsKayWat-inspired widget layout](https://github.com/Owen-kasule/Owen-kasule/pull/2) in [Owen-kasule/Owen-kasule](https://github.com/Owen-kasule/Owen-kasule)
+<!--RECENT_ACTIVITY:end-->
 </details>
 
-<div align="center"><br /><img width="100%" src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/main/assets/profile/footer-wave.svg" alt="Thanks for visiting" /></div>
-
-<p align="center"><strong>“The best way to predict the future is to invent it.”</strong></p>
+<div align="center">
+  <a href="#">
+    <img height="120" width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=1D4ED8&height=120&section=header&text=Thanks%20for%20visiting!&fontSize=30&fontColor=F8FAFC&animation=twinkling" alt="Thanks for visiting" />
+  </a>
+  <br>
+  <blockquote>
+    <p><strong>"The best way to predict the future is to invent it."</strong></p>
+  </blockquote>
+  <p align="center">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,13,14,18,20&height=60&section=footer" alt="footer wave" />
+  </p>
+</div>
