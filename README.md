@@ -165,6 +165,13 @@
   <!-- Use GitHub's official contributions calendar SVG for live updates and hover details -->
   <img src="https://github.com/users/Owen-kasule/contributions" alt="Owen's GitHub contributions" />
 </p>
+<p align="center">
+  <!-- GitHub streak widget (github-readme-streak-stats) -->
+  <a href="https://git.io/streaks">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule" alt="Owen's GitHub Streak" />
+  </a>
+</p>
+
 </details>
 
 <p align="center">
