@@ -166,9 +166,9 @@
   <img src="https://github.com/users/Owen-kasule/contributions" alt="Owen's GitHub contributions" />
 </p>
 <p align="center">
-  <!-- GitHub streak widget (github-readme-streak-stats) -->
+  <!-- GitHub streak widget (github-readme-streak-stats) - styled for black background -->
   <a href="https://git.io/streaks">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule" alt="Owen's GitHub Streak" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Owen-kasule&theme=dark&background=000000" alt="Owen's GitHub Streak" style="background:#000;border-radius:8px;padding:6px" />
   </a>
 </p>
 
@@ -186,14 +186,22 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Owen-kasule&theme=github_dark&utcOffset=3" alt="Owen's productive time" />
 </p>
 
+</p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-stats-card.svg" alt="Owen's GitHub stats card" />
+  <!-- Generated SVGs: if these are missing on GitHub, run the generator script and commit the output (see note below) -->
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-stats-card.svg" alt="Owen's GitHub stats card" style="background:#000;border-radius:8px;padding:8px" />
 </p>
 
 <h3 align="center">Contribution Snake</h3>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen's contribution snake" />
+  <img src="https://raw.githubusercontent.com/Owen-kasule/Owen-kasule/output/github-contribution-grid-snake-dark.svg" alt="Owen's contribution snake" style="background:#000;border-radius:8px;padding:8px" />
 </p>
+
+<p align="center"><em>If either generated SVG appears as a broken image on GitHub, generate and commit them locally by running:</em></p>
+<pre><code>node .github/scripts/generate-brick-snake.js
+# then commit the files under output/ (github-stats-card.svg and github-contribution-grid-snake-dark.svg)
+</code></pre>
+</details>
 </details>
 
 <details open>
@@ -202,14 +210,14 @@
 ### Overall Stats & Top Languages
 <p align="center">
   <!-- Overall GitHub stats and top languages (black background, white text, blue accents) -->
-  <img src="https://github-readme-stats.vercel.app/api?username=Owen-kasule&show_icons=true&theme=dark&title_color=0A66C2&icon_color=0A66C2&text_color=ffffff&bg_color=000000" height="150" alt="Overall GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&theme=dark&title_color=0A66C2&text_color=ffffff&bg_color=000000&icon_color=0A66C2" height="150" alt="Top languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=Owen-kasule&show_icons=true&theme=dark&bg_color=000000&text_color=ffffff&title_color=0A66C2&icon_color=0A66C2" height="150" alt="Overall GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Owen-kasule&layout=compact&theme=dark&bg_color=000000&text_color=ffffff&title_color=0A66C2&icon_color=0A66C2" height="150" alt="Top languages" />
 </p>
 
 ### Tech Stack Badges
 <p align="left">
-  <!-- Badges styled with black label, blue fill (#0A66C2), white text where appropriate -->
-  <img src="https://img.shields.io/badge/JavaScript-0A66C2?style=for-the-badge&logo=javascript&logoColor=black&labelColor=000000" alt="JavaScript" />
+  <!-- Badges styled with black label, blue fill (#0A66C2), white logo/text -->
+  <img src="https://img.shields.io/badge/JavaScript-0A66C2?style=for-the-badge&logo=javascript&logoColor=white&labelColor=000000" alt="JavaScript" />
   <img src="https://img.shields.io/badge/TypeScript-0A66C2?style=for-the-badge&logo=typescript&logoColor=white&labelColor=000000" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Node.js-0A66C2?style=for-the-badge&logo=node.js&logoColor=white&labelColor=000000" alt="Node.js" />
   <img src="https://img.shields.io/badge/React-0A66C2?style=for-the-badge&logo=react&logoColor=white&labelColor=000000" alt="React" />
@@ -223,7 +231,7 @@
 <p align="center">
   <!-- WakaTime: change the @username path if your WakaTime account uses a different name -->
   <a href="https://wakatime.com/@Owen-kasule">
-    <img src="https://wakatime.com/share/@Owen-kasule.svg" alt="WakaTime coding stats" style="background:#000000;border-radius:6px;padding:6px" />
+    <img src="https://wakatime.com/share/@Owen-kasule.svg" alt="WakaTime coding stats" style="background:#000;border-radius:6px;padding:6px" />
   </a>
 </p>
 
