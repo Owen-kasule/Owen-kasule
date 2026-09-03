@@ -1,23 +1,15 @@
-name: Generate Profile Widgets
+name: Generate Snake
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - README.md
-      - .github/scripts/**
-      - .github/workflows/snake.yml
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -25,20 +17,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: Generate contribution snake and streak card
+      - name: Generate brick-game contribution snake
         run: node .github/scripts/generate-brick-snake.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate self-hosted profile widgets
-        run: node .github/scripts/generate-profile-widgets.js
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          WAKATIME_USERNAME: Owen-kasule
-
-      - name: Publish widgets to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist

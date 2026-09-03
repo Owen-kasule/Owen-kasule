@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-label="GitHub Streak">
+  <style>.title{font:700 28px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#60A5FA}.h{font:700 20px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#F8FAFC}.small{font:500 13px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#A9B4C5}.num{font:800 30px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#F8FAFC}</style>
+  <rect x="1" y="1" width="898" height="248" rx="14" fill="#10162A" stroke="#1D4ED8" stroke-width="2"/><text class="title" x="28" y="46">GitHub Streak</text>
+  <rect x="28" y="82" width="396" height="125" rx="12" fill="#06070C" stroke="#2A3550"/><text class="num" x="226" y="136" text-anchor="middle">7 days</text><text class="h" x="226" y="169" text-anchor="middle">Current Streak</text><text class="small" x="226" y="194" text-anchor="middle">Aug 23 to Aug 29</text>
+  <rect x="476" y="82" width="396" height="125" rx="12" fill="#06070C" stroke="#2A3550"/><text class="num" x="674" y="136" text-anchor="middle">9 days</text><text class="h" x="674" y="169" text-anchor="middle">Longest Streak</text><text class="small" x="674" y="194" text-anchor="middle">Jun 12 to Jun 20</text>
+</svg>

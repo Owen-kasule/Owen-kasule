@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="Top Programming Languages">
+  <style>
+    .title{font:700 28px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#60A5FA}
+    .h{font:700 20px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#F8FAFC}
+    .body{font:500 16px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#F8FAFC}
+    .small{font:500 13px ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#A9B4C5}
+  </style>
+  <rect x="1" y="1" width="898" height="358" rx="14" fill="#10162A" stroke="#1D4ED8" stroke-width="2"/>
+  <text class="title" x="28" y="46">Top Programming Languages</text>
+  <text class="h" x="28" y="108">TypeScript</text><rect x="210" y="90" width="540" height="26" rx="8" fill="#06070C"/><rect x="210" y="90" width="270" height="26" rx="8" fill="#1D4ED8"/><text class="body" x="775" y="109">50%</text>
+  <text class="h" x="28" y="178">JavaScript</text><rect x="210" y="160" width="540" height="26" rx="8" fill="#06070C"/><rect x="210" y="160" width="135" height="26" rx="8" fill="#60A5FA"/><text class="body" x="775" y="179">25%</text>
+  <text class="h" x="28" y="248">Python</text><rect x="210" y="230" width="540" height="26" rx="8" fill="#06070C"/><rect x="210" y="230" width="135" height="26" rx="8" fill="#1D4ED8"/><text class="body" x="775" y="249">25%</text>
+  <text class="small" x="28" y="325">Featured repository language mix: TransparentSpark, Handcrafted Haven, Wow Shoppers Lite, and SoundHire Data Analysis.</text>
+</svg>
