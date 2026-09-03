@@ -78,7 +78,6 @@ function cellColor(count, dark) {
 function buildPath(weeks, left, top, step) {
   const points = [];
 
-  // A short entry path makes the head feel like it moves into the chart.
   points.push(
     { x: left - step * 3, y: top },
     { x: left - step * 2, y: top },
@@ -120,17 +119,47 @@ function eatenAnimation(originalFill, emptyFill, progress) {
   return `<animate attributeName="fill" dur="${animationDuration}" repeatCount="indefinite" calcMode="discrete" keyTimes="0;${eatAt.toFixed(4)};${clearAt.toFixed(4)};1" values="${originalFill};${originalFill};${emptyFill};${emptyFill}" />`;
 }
 
+function renderProgressBar(path, left, top, width, dark) {
+  const track = dark ? "#06070C" : "#DBEAFE";
+  const border = dark ? "#1D4ED8" : "#93C5FD";
+  const barHeight = 8;
+
+  const keyTimes = path.map((_, index) =>
+    (index / Math.max(1, path.length - 1)).toFixed(4),
+  );
+
+  const widths = path.map((_, index) =>
+    ((index / Math.max(1, path.length - 1)) * width).toFixed(2),
+  );
+
+  return `
+  <defs>
+    <linearGradient id="progress-blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="55%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#60A5FA" />
+    </linearGradient>
+  </defs>
+  <g aria-label="Snake progress">
+    <rect x="${left}" y="${top}" width="${width}" height="${barHeight}" rx="4" fill="${track}" stroke="${border}" stroke-width="1" opacity="0.95" />
+    <rect x="${left}" y="${top}" width="0" height="${barHeight}" rx="4" fill="url(#progress-blue)">
+      <animate attributeName="width" dur="${animationDuration}" repeatCount="indefinite" calcMode="discrete" keyTimes="${keyTimes.join(";")}" values="${widths.join(";")}" />
+    </rect>
+  </g>`;
+}
+
 function render(weeks, dark) {
   const cell = 11;
   const gap = 4;
   const step = cell + gap;
   const left = 55;
   const top = 16;
-  const bottom = 16;
   const gridWidth = weeks.length * step - gap;
   const gridHeight = 7 * step - gap;
+  const progressTop = top + gridHeight + 15;
+  const bottom = 18;
   const width = left + gridWidth + 18;
-  const height = top + gridHeight + bottom;
+  const height = progressTop + 8 + bottom;
   const emptyFill = dark ? "#10162A" : "#E2E8F0";
 
   const path = buildPath(weeks, left, top, step);
@@ -172,15 +201,17 @@ function render(weeks, dark) {
     .join("\n");
 
   const head = `<rect x="${headOffset}" y="${headOffset}" width="${headSize}" height="${headSize}" rx="7" fill="#60A5FA">${motion(path, 0)}</rect>`;
+  const progressBar = renderProgressBar(path, left, progressTop, gridWidth, dark);
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">${username} GitHub contribution snake</title>
-  <desc id="desc">A blue animated snake with a larger head moves through ${username}'s live GitHub contribution grid.</desc>
+  <desc id="desc">A blue animated snake with a larger head moves through ${username}'s live GitHub contribution grid while the progress bar tracks the animation.</desc>
   <g>${cells.join("\n")}</g>
   <g aria-label="Animated blue contribution snake">
     ${body}
     ${head}
   </g>
+  ${progressBar}
 </svg>
 `;
 }
