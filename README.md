@@ -81,19 +81,21 @@
 </details>
 
 <details open>
-<summary>Top Repositories</summary>
+<summary>Featured Projects</summary>
 <p align="center">
   <a href="https://github.com/Owen-kasule/TransparentSpark">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=TransparentSpark&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="TransparentSpark repository" />
+    <img width="49%" src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=TransparentSpark&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&card_width=460&description_lines_count=2" alt="TransparentSpark repository" />
   </a>
   <a href="https://github.com/Owen-kasule/wdd430-group05-handcrafted-haven">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=wdd430-group05-handcrafted-haven&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Handcrafted Haven repository" />
+    <img width="49%" src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=wdd430-group05-handcrafted-haven&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&card_width=460&description_lines_count=2" alt="Handcrafted Haven repository" />
   </a>
+</p>
+<p align="center">
   <a href="https://github.com/Owen-kasule/wow-shoppers-lite">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=wow-shoppers-lite&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="Wow Shoppers Lite repository" />
+    <img width="49%" src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=wow-shoppers-lite&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&card_width=460&description_lines_count=2" alt="Wow Shoppers Lite repository" />
   </a>
   <a href="https://github.com/Owen-kasule/SoundHire-Data-Analysis">
-    <img src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=SoundHire-Data-Analysis&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8" alt="SoundHire Data Analysis repository" />
+    <img width="49%" src="https://github-stats-extended.vercel.app/api/pin/?username=Owen-kasule&repo=SoundHire-Data-Analysis&theme=dark&title_color=60A5FA&icon_color=1D4ED8&text_color=F8FAFC&bg_color=10162A&border_color=1D4ED8&card_width=460&description_lines_count=2" alt="SoundHire Data Analysis repository" />
   </a>
 </p>
 </details>
